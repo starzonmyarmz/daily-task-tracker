@@ -10,15 +10,12 @@
 
 $(document).ready(function() {
 
-    /*
-     * Checks/Unchecks input if increment box is checked/unchecked
-     * Updates task time total and day time total
-     *
-     */
 
+    // Actions taking place when increment box is checked/unchecked
     (function increment_checkbox() {
         $(".increment label").live("click", function() {
 
+            // Add/removes .active class and checks/unchecks input checkbox
             if ($(this).hasClass("active")) {
                 $(this).removeClass("active");
                 $(this).next().removeAttr("checked");
@@ -31,9 +28,12 @@ $(document).ready(function() {
                 task_total = parent.find(".active").length * 0.25,
                 day_total  = $("body").find(".active").length * 0.25;
 
+            // Updates task total
             $(parent).find("span").text(task_total);
-            $("#day_time_total").text(day_total);
             
+            // Updates day total
+            $("#day_time_total").text(day_total);
+
         });
     }());
 
@@ -41,7 +41,8 @@ $(document).ready(function() {
     (function add_task() {
         var theHTML = $("#task_1").html();
         $("#add_task").click(function() {
-            $("tbody").append("<tr>" + theHTML + "</tr>");
+            var theId = $("#tasks tbody tr").length + 1;
+            $("tbody").append('<tr id="task_' + theId + '">' + theHTML + '</tr>');
         });
     }());
 
