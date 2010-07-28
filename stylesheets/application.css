@@ -1,0 +1,131 @@
+/*
+ *
+ * Title:   Emergent Task Timer
+ * Author:  Daniel Marino
+ * Revised: July 2010
+ *
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #0396f3;
+}
+
+body {
+  background: #fff;
+  font-family: HelveticaNeue-Light, helvetica, arial, verdana, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 15px;
+}
+
+header,
+#notes {
+  border: 1px solid #ccc;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+footer {
+  line-height: 50px;
+}
+
+
+/* Tables
+----------------------------------------------------------------------------------------------------*/
+
+table {
+  border-collapse: collapse;
+  margin: 50px 0;
+  width: 100%;
+}
+
+th, td {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 5px;
+  text-align: left;
+  vertical-align: middle;
+  width: 56px;
+}
+
+th:first-child {
+  width: auto;
+}
+
+tbody th, tbody th {
+  font-weight: normal;
+}
+
+tbody td:nth-child(even) {
+  background: #efefef;
+}
+
+tfoot th, tfoot td {
+  background: none;
+  border: 0;
+}
+
+
+/* Forms
+----------------------------------------------------------------------------------------------------*/
+
+.task_title label {
+  display: none;
+}
+
+.task_title input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px;
+  width: 100%;
+}
+
+.increment {
+  float: left;
+  height: 25px;
+  overflow: hidden;
+  margin: 0 1px;
+  width: 12px;
+}
+
+.increment label {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d2d2d2), to(#e5e5e5));
+  border: 1px solid #bfbfbf;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  text-indent: -5000px;
+  width: 100%;
+}
+
+.increment input {
+  display: none;
+}
+
+
+
+
+
+/* Misc
+----------------------------------------------------------------------------------------------------*/
+
+.active {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7dc8f9), to(#0396f3)) !important;
+  border: 1px solid #0396f3 !important;
+}
