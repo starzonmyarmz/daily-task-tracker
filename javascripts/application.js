@@ -30,7 +30,7 @@ $(document).ready(function() {
 
             // Updates task total
             $(parent).find("span").text(task_total);
-            
+
             // Updates day total
             $("#day_time_total").text(day_total);
 
@@ -44,6 +44,22 @@ $(document).ready(function() {
             var theId = $("#tasks tbody tr").length + 1;
             $("tbody").append('<tr id="task_' + theId + '">' + theHTML + '</tr>');
         });
+    }());
+
+    // Change styles on task title
+    (function taskTitleClass() {
+        var input = $(".task_title input");
+        input.live("blur", function() {
+            if ($(this).val()) {
+                $(this).addClass("has_value");
+            } else {
+                $(this).removeClass("has_value");
+            }
+        });
+        input.live("focus", function() {
+            $(this).removeClass("has_value");
+        });
+        
     }());
 
 });
