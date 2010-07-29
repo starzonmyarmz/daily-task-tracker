@@ -24,7 +24,7 @@ body {
 }
 
 header,
-#notes {
+#prefs > div {
   border: 1px solid #ccc;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -34,7 +34,16 @@ header,
   padding: 10px;
 }
 
-footer {
+#prefs {
+  display: none;
+}
+
+h1 {
+  float: left;
+}
+
+.controls {
+  float: right;
 }
 
 
@@ -140,10 +149,6 @@ tfoot th, tfoot td {
   display: none;
 }
 
-
-/* Misc
-----------------------------------------------------------------------------------------------------*/
-
 .active {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#62cdf5), to(#04afef)) !important;
   background: -moz-linear-gradient(19% 75% 90deg, #04afef, #62cdf5) !important;
@@ -173,3 +178,20 @@ tfoot th, tfoot td {
   }
 
 }
+
+
+/* Misc
+----------------------------------------------------------------------------------------------------*/
+
+.clearfix:after {
+	clear: both;
+	content: ' ';
+	display: block;
+	font-size: 0;
+	line-height: 0;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+

@@ -69,4 +69,12 @@ $(document).ready(function() {
         });
     }());
 
+    // Show/hide nav items
+    (function toggleNavItems() {
+        $("#toggle_prefs").click(function() {
+            $("#prefs").toggle()
+            return false;
+        });
+    }());
+
 });
