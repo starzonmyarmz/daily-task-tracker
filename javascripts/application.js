@@ -59,7 +59,14 @@ $(document).ready(function() {
         input.live("focus", function() {
             $(this).removeClass("has_value");
         });
-        
+
+    }());
+
+    // Return false if form is submitted - otherwise data is erased
+    (function noSubmit() {
+        $("form").submit(function() {
+            return false;
+        });
     }());
 
 });
