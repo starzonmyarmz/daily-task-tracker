@@ -35,7 +35,6 @@ header,
 }
 
 footer {
-  line-height: 50px;
 }
 
 
@@ -59,7 +58,6 @@ th, td {
 th:first-child {
   width: auto;
 }
-
 
 tbody th {
   font-weight: normal;
@@ -143,9 +141,6 @@ tfoot th, tfoot td {
 }
 
 
-
-
-
 /* Misc
 ----------------------------------------------------------------------------------------------------*/
 
@@ -153,4 +148,28 @@ tfoot th, tfoot td {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#62cdf5), to(#04afef)) !important;
   background: -moz-linear-gradient(19% 75% 90deg, #04afef, #62cdf5) !important;
   border: 1px solid #00a7e6 !important;
+}
+
+
+/* Media Queries for Portable Devices
+----------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width:800px) {
+
+  th, td {
+    padding: 2px;
+    text-align: center;
+    width: 15px;
+  }
+
+  th:first-child,
+  td:first-child {
+    padding: 5px;
+    text-align: left;
+  }
+
+  .increment {
+    margin: 1px;
+  }
+
 }
