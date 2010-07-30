@@ -16,8 +16,13 @@ $(document).ready(function() {
     // Adds Unique Ids to increments
     function addUniqueIds(el) {
       $(el).each(function() {
-          $(this).find("label").attr("for", "checkbox_" + num);
-          $(this).find('input[type="checkbox"]').attr("id", "checkbox_" + num).attr("name","cb_" + num);
+          $(this)
+              .find("label")
+              .attr("for", "field_" + num);
+          $(this)
+              .find(':input')
+              .attr("id", "field_" + num)
+              .attr("name","field_" + num);
           num++;
       });
     }
@@ -33,16 +38,13 @@ $(document).ready(function() {
 
     // Add unique ids to first tr of increment checkboxes
     (function addIds() {
-        var tr = $("#task_1 .increment");
+        var tr = $("#task_1 .task_title, #task_1 .increment");
         addUniqueIds(tr);
     }());
 
     // Get todays date
     (function todaysDate() {
-        var d = new Date(),
-            month = d.getMonth(),
-            day   = d.getDate(),
-            year  = d.getFullYear();
+        var d = new Date(), month = d.getMonth(), day = d.getDate(), year = d.getFullYear();
         switch (month) {
             case 0:
                 month = "January";
@@ -132,10 +134,9 @@ $(document).ready(function() {
     (function add_task() {
         var theHTML = $("#task_1").html();
         $("#add_task").click(function() {
-            var theId    = $("#tasks tbody tr").length + 1,
-                theInput = $("#task_title_1");
+            var theId = $("#tasks tbody tr").length + 1;
             $("tbody").append('<tr id="task_' + theId + '">' + theHTML + '</tr>');
-            var tr = $("#task_" + theId + " .increment");
+            var tr = $("#task_" + theId + " .task_title, #task_" + theId + " .increment");
             addUniqueIds(tr);
         });
     }());
