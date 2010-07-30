@@ -24,25 +24,35 @@ body {
 }
 
 header {
-  border: 1px solid #ccc;
+  background: #434343;
+  color: #fff;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   display: block;
+  line-height: 40px;
   margin: 20px 0;
   padding: 10px;
+
 }
 
 h1 {
   float: left;
+  margin: 0;
+  text-shadow: 0 -1px 2px rgba(0, 0, 0 , .75);
 }
 
+#today {
+  display: block;
+  float: right;
+}
 
 /* Tables
 ----------------------------------------------------------------------------------------------------*/
 
 table {
   border-collapse: collapse;
+  line-height: 1;
   margin: 50px 0;
   width: 100%;
 }
@@ -168,7 +178,12 @@ tfoot th, tfoot td {
     text-align: left;
   }
 
+  .task_title textarea {
+    height: 80px;
+  }
+
   .increment {
+    height: 20px;
     margin: 1px;
   }
 
