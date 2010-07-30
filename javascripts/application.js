@@ -65,7 +65,7 @@ $(document).ready(function() {
             default:
                 break;
         }
-        $("#today").append(month + " " + day + ", " + year);
+        $("#today time").append(month + " " + day + ", " + year);
     }());
 
 
