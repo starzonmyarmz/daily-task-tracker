@@ -187,7 +187,7 @@ tfoot th, tfoot td {
 .increment {
   float: left;
   height: 25px;
-  overflow: hidden;
+/*  overflow: hidden; */
   margin: 0 1px;
   width: 12px;
 }
@@ -211,7 +211,7 @@ tfoot th, tfoot td {
 }
 
 .increment input {
-  display: none;
+/*  display: none; */
 }
 
 .active {

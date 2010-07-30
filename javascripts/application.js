@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     // Variable for counting increment checkboxes
     var num = 0;
-    
+
     // Adds Unique Ids to increments
     function addUniqueIds(el) {
       $(el).each(function() {
@@ -22,7 +22,7 @@ $(document).ready(function() {
           $(this)
               .find(':input')
               .attr("id", "field_" + num)
-              .attr("name","field_" + num);
+              .attr("name", "field_" + num);
           num++;
       });
     }
@@ -94,8 +94,8 @@ $(document).ready(function() {
 
         if (localStorage.bett) {
             alert("There is localStorage data!");
-            //var jsonData = JSON.parse(localStorage.bett);
-            //alert($.dump(jsonData));
+            // var jsonData = JSON.parse(localStorage.bett);
+            // alert($.dump(jsonData));
         }
 
     }());
@@ -107,15 +107,13 @@ $(document).ready(function() {
             // Add/removes .active class and checks/unchecks input checkbox
             if ($(this).hasClass("active")) {
                 $(this).removeClass("active");
-                $(this).next().removeAttr("checked");
             } else {
                 $(this).addClass("active");
-                $(this).next().attr("checked", "checked");
             }
 
             var parent     = $(this).parents("tr"),
-                task_total = parent.find(".active").length * 0.25,
-                day_total  = $("body").find(".active").length * 0.25;
+                task_total = parent.find("input:checked").length * 0.25,
+                day_total  = $("body").find("input:checked").length * 0.25;
 
             // Updates task total
             $(parent).find(".task_time_total").text(task_total);
@@ -124,7 +122,7 @@ $(document).ready(function() {
             $("#day_time_total").text(day_total);
 
             // Store data via localStorage
-            var bett = $("#tasks_form").serializeArray();
+            var bett = $(":input").serializeArray();
             localStorage.bett = JSON.stringify(bett);
 
         });
