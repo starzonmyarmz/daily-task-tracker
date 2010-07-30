@@ -102,13 +102,19 @@ $(document).ready(function() {
 
     // Actions taking place when increment box is checked/unchecked
     (function incrementCheckbox() {
-        $(".increment label").live("click", function() {
+        $(".increment").live("click", function() {
 
             // Add/removes .active class and checks/unchecks input checkbox
-            if ($(this).hasClass("active")) {
-                $(this).removeClass("active");
+
+            var l = $(this).find("label"),
+                i = $(this).find("input");
+
+            if (l.hasClass("active")) {
+                l.removeClass("active");
+                i.removeAttr("checked");
             } else {
-                $(this).addClass("active");
+                l.addClass("active");
+                i.attr("checked", "checked");
             }
 
             var parent     = $(this).parents("tr"),
@@ -124,6 +130,8 @@ $(document).ready(function() {
             // Store data via localStorage
             var bett = $(":input").serializeArray();
             localStorage.bett = JSON.stringify(bett);
+
+            return false;
 
         });
     }());
