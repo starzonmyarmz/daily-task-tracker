@@ -30,10 +30,9 @@ header {
   -moz-border-radius: 10px;
   border-radius: 10px;
   display: block;
-  line-height: 40px;
+  line-height: 30px;
   margin: 20px 0;
   padding: 10px;
-
 }
 
 h1 {
@@ -67,6 +66,15 @@ th, td {
 
 th:first-child {
   width: auto;
+}
+
+thead th:after {
+  content: ':00';
+}
+
+thead th:first-child:after,
+thead th:last-child:after {
+  content: '';
 }
 
 tbody th {
@@ -177,8 +185,14 @@ tfoot th, tfoot td {
     padding: 5px;
     text-align: left;
   }
+  
+  thead th:after {
+    content: '';
+  }
 
   .task_title textarea {
+  background: -webkit-gradient(linear, 0% 0%, 0% 3%, from(#c3c3c3), to(#fff));
+  background: -moz-linear-gradient(0% 3% 90deg, #fff, #c3c3c3);
     height: 80px;
   }
 

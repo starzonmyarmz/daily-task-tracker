@@ -13,7 +13,7 @@ $(document).ready(function() {
     // Create some markup
     (function incrementMarkup() {
         var td = $(".task_increment").html(), html = "";
-        for (var i = 0; i < 11; i++) {
+        for (var i = 1; i < 12; i++) {
             html += '<td id="tc_' + i + '" class="task_increment">' + td + '</td>';
         }
         $(".task_increment").replaceWith(html);
@@ -59,7 +59,7 @@ $(document).ready(function() {
             case 10:
                 month = "November";
                 break;
-            case 11:;
+            case 11:
                 month = "December";
                 break;
             default:
@@ -135,12 +135,13 @@ $(document).ready(function() {
             input.each(function() {
                 var val  = $(this).val(),
                     name = $(this).attr("name"),
-                    id   = $(this).attr("id");
-                    atts = 'placeholder="Edit task title" autocomplete="off"';
+                    id   = $(this).attr("id"),
+                    clss = $(this).attr("class"),
+                    atts = 'placeholder="Edit task title&hellip;" autocomplete="off"';
                 if ($(window).width() < 800) {
-                    $(this).replaceWith('<textarea name="' + name + '" id="' + id + '"' + atts + '>' + val + '</textarea>');
+                    $(this).replaceWith('<textarea name="' + name + '" id="' + id + '" class="' + clss + '"' + atts + '>' + val + '</textarea>');
                 } else {
-                    $(this).replaceWith('<input name="' + name + '" id="' + id + '"' + atts +'value="' + val + '" />');
+                    $(this).replaceWith('<input name="' + name + '" id="' + id + '" class="' + clss + '"' + atts +'value="' + val + '" />');
                 }
             });
         });

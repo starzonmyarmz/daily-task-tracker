@@ -3,15 +3,3 @@ h1. Browser Emergent Task Timer
 This is the _Browser Emergent Task Timer_, a browser-based version of the printable "Emergent Task Timer":http://davidseah.com/blog/the-printable-ceo-iii-emergent-task-timing/ which is created by "David Seah":http://davidseah.com/. Do not confuse the BETT(Browser Emergent Task Timer) with the _Web Emergent Task Timer_ which is a Flash application, developed by David Seah. 
 
 I started using the printable Emergent Task Timer recently and really liked the formatting. Having said that, I hate having to print one out for every day. With David's blessing I set out to create a browser-based version that would also be printer-friendly. It is important to note that the BETT(Browser Emergent Task Timer) is completely independant of needing an internet connection.
-
-h2. Requirements
-
-The BETT(Browser Emergent Task Timer) relies heavily on HTML5 features, so you'll want to use Safari, Chrome, or Firefox as your browser. It also relies heavily on Javascript, so you'll need that turned on (does anyone actually turn it off?).
-
-h2. Upcoming Features
-
-I have some big plans for future versions of the BETT(Browser Emergent Task Timer), but if you have any requests feel free to "submit them":http://github.com/starzonmyarmz/Browser-Emergent-Task-Timer/issues.
-
-h2. Colophon
-
-As mentioned earlier, the BETT(Browser Emergent Task Timer) uses HTML and Javascript. It also uses the "jQuery":http://jquery.com Javascript library, a lot of CSS3 features and attributes, and uses no images (despite there being an _images_ directory).
