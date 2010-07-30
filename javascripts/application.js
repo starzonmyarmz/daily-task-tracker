@@ -85,6 +85,12 @@ $(document).ready(function() {
     // Load data from localStorage if record exists
     (function loadData() {
 
+        if (localStorage.bett) {
+            alert("There is localStorage data!");
+            //var jsonData = JSON.parse(localStorage.bett);
+            //alert($.dump(jsonData));
+        }
+
     }());
 
     // Actions taking place when increment box is checked/unchecked
@@ -111,8 +117,8 @@ $(document).ready(function() {
             $("#day_time_total").text(day_total);
 
             // Store data via localStorage
-            var currentData = $("#tasks_form").serializeArray();
-            localStorage.taskData = JSON.stringify(currentData);
+            var bett = $("#tasks_form").serializeArray();
+            localStorage.bett = JSON.stringify(bett);
 
         });
     }());
@@ -163,6 +169,14 @@ $(document).ready(function() {
                     $(this).replaceWith('<input name="' + name + '" id="' + id + '" class="' + clss + '"' + atts +'value="' + val + '" />');
                 }
             });
+        });
+    }());
+
+    // Wipe out localStorage
+    (function noSubmit() {
+        $("#clear_data").click(function() {
+            delete localStorage.bett;
+            return false;
         });
     }());
 
