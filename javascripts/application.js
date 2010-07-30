@@ -12,9 +12,18 @@ $(document).ready(function() {
 
     // Variable for counting increment checkboxes
     var num = 0;
+    
+    // Adds Unique Ids to increments
+    function addUniqueIds(el) {
+      $(el).each(function() {
+          $(this).find("label").attr("for", "checkbox_" + num);
+          $(this).find('input[type="checkbox"]').attr("id", "checkbox_" + num).attr("name","cb_" + num);
+          num++;
+      });
+    }
 
-    // Create some markup
-    (function incrementMarkup() {
+    // Create some table columns
+    (function createTableColumns() {
         var td = $(".t_inc").html(), html = "";
         for (var i = 1; i < 12; i++) {
             html += '<td id="tc_' + i + '" class="t_inc">' + td + '</td>';
@@ -22,14 +31,10 @@ $(document).ready(function() {
         $(".t_inc").replaceWith(html);
     }());
 
-    // Add unique ids to increment checkboxes
+    // Add unique ids to first tr of increment checkboxes
     (function addIds() {
         var tr = $("#task_1 .increment");
-        $(tr).each(function() {
-            $(this).find("label").attr("for", "checkbox_" + num);
-            $(this).find('input[type="checkbox"]').attr("id", "checkbox_" + num).attr("name","cb_" + num);
-            num++;
-        });
+        addUniqueIds(tr);
     }());
 
     // Get todays date
@@ -127,14 +132,11 @@ $(document).ready(function() {
     (function add_task() {
         var theHTML = $("#task_1").html();
         $("#add_task").click(function() {
-            var theId = $("#tasks tbody tr").length + 1;
+            var theId    = $("#tasks tbody tr").length + 1,
+                theInput = $("#task_title_1");
             $("tbody").append('<tr id="task_' + theId + '">' + theHTML + '</tr>');
             var tr = $("#task_" + theId + " .increment");
-            $(tr).each(function() {
-                $(this).find("label").attr("for", "checkbox_" + num);
-                $(this).find('input[type="checkbox"]').attr("id", "checkbox_" + num).attr("name","cb_" + num);
-                num++;
-            });
+            addUniqueIds(tr);
         });
     }());
 
