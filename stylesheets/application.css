@@ -23,8 +23,7 @@ body {
   margin: 15px;
 }
 
-header,
-#prefs > div {
+header {
   border: 1px solid #ccc;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -34,16 +33,8 @@ header,
   padding: 10px;
 }
 
-#prefs {
-  display: none;
-}
-
 h1 {
   float: left;
-}
-
-.controls {
-  float: right;
 }
 
 
@@ -89,7 +80,8 @@ tfoot th, tfoot td {
   display: none;
 }
 
-.task_title input {
+.task_title input,
+.task_title textarea {
   background: -webkit-gradient(linear, 0% 0%, 0% 10%, from(#c3c3c3), to(#fff));
   background: -moz-linear-gradient(0% 10% 90deg, #fff, #c3c3c3);
   border: 1px solid #c3c3c3;
@@ -103,19 +95,22 @@ tfoot th, tfoot td {
   width: 100%;
 }
 
-.task_title input:focus {
+.task_title input:focus,
+.task_title textarea:focus {
   -webkit-box-shadow: 0 0 3px rgba(4, 175, 239, 1);
   -moz-box-shadow: 0 0 3px rgba(4, 175, 239, 1);
   box-shadow: 0 0 3px rgba(4, 175, 239, 1);
 }
 
-.task_title input.has_value {
+.task_title input.has_value,
+.task_title textarea.has_value {
   background: #fff;
   border: 0;
   padding: 6px;
 }
 
-.task_title input.has_value:hover {
+.task_title input.has_value:hover
+.task_title textarea.has_value:hover {
   background: rgba(4, 175, 239, .1);
 }
 

@@ -6,34 +6,21 @@
 
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-  <title>Emergent Task Timer</title>
+  <title>Browser Emergent Task Timer</title>
 
-  <link rel="stylesheet" type="text/css" href="stylesheets/application.css" />
+  <link rel="stylesheet" media="screen" href="stylesheets/application.css" />
+  <link rel="stylesheet" media="print" href="stylesheets/print.css" />
 
 </head>
 
 <body>
 
 <header class="clearfix">
-
   <h1>Browser Emergent Task Timer</h1>
-
-  <div class="controls">
-    <!-- <a href="#" id="">Print</a> -->
-    <!-- <a href="#" id="">Export</a> -->
-    <a href="#" id="toggle_prefs">Preferences</a>
-  </div>
-
 </header>
 
-<section id="prefs">
-  <div>
-    <p>Preferences goes here...</p>
-  </div>
-</section>
-
 <section id="tasks">
-  <form>
+  <form id="tasks_form">
     <table>
       <thead>
         <tr>
@@ -60,80 +47,18 @@
       </tfoot>
       <tbody>
         <tr id="task_1">
-          <th>
-            <div class="field task_title">
-              <label for="task_title_1">Task Title</label>
-              <input id="task_title_1" placeholder="Edit task title&hellip;" autocomplete="off" />
-            </div>
+          <th class="task_title">
+            <label for="task_title_1">Task Title</label>
+            <input id="task_title_1" name="my_name" placeholder="Edit task title" autocomplete="off" />
           </th>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
+          <td class="task_increment">
+            <div class="increment"><label>:15</label><input type="checkbox" /></div>
+            <div class="increment"><label>:30</label><input type="checkbox" /></div>
+            <div class="increment"><label>:45</label><input type="checkbox" /></div>
+            <div class="increment"><label>:60</label><input type="checkbox" /></div>
           </td>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td>
-            <div class="field increment"><label>:15</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:30</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:45</label><input type="checkbox" /></div>
-            <div class="field increment"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td>
-            <span class="task_time_total">0</span>
+          <td class="task_time_total">
+            0
           </td>
         </tr>
       </tbody>
