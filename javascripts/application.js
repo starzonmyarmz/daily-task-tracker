@@ -10,13 +10,26 @@
 
 $(document).ready(function() {
 
+    // Variable for counting increment checkboxes
+    var num = 0;
+
     // Create some markup
     (function incrementMarkup() {
-        var td = $(".task_increment").html(), html = "";
+        var td = $(".t_inc").html(), html = "";
         for (var i = 1; i < 12; i++) {
-            html += '<td id="tc_' + i + '" class="task_increment">' + td + '</td>';
+            html += '<td id="tc_' + i + '" class="t_inc">' + td + '</td>';
         }
-        $(".task_increment").replaceWith(html);
+        $(".t_inc").replaceWith(html);
+    }());
+
+    // Add unique ids to increment checkboxes
+    (function addIds() {
+        var tr = $("#task_1 .increment");
+        $(tr).each(function() {
+            $(this).find("label").attr("for", "checkbox_" + num);
+            $(this).find('input[type="checkbox"]').attr("id", "checkbox_" + num).attr("name","cb_" + num);
+            num++;
+        });
     }());
 
     // Get todays date
@@ -110,6 +123,12 @@ $(document).ready(function() {
         $("#add_task").click(function() {
             var theId = $("#tasks tbody tr").length + 1;
             $("tbody").append('<tr id="task_' + theId + '">' + theHTML + '</tr>');
+            var tr = $("#task_" + theId + " .increment");
+            $(tr).each(function() {
+                $(this).find("label").attr("for", "checkbox_" + num);
+                $(this).find('input[type="checkbox"]').attr("id", "checkbox_" + num).attr("name","cb_" + num);
+                num++;
+            });
         });
     }());
 
