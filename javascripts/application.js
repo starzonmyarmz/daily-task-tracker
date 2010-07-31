@@ -16,15 +16,17 @@ $(document).ready(function() {
     // Adds Unique Ids to increments
     function addUniqueIds(el) {
       $(el).each(function() {
-          $(this)
-              .find("label")
-              .attr("for", "field_" + num);
-          $(this)
-              .find(':input')
-              .attr("id", "field_" + num)
-              .attr("name", "field_" + num);
+          $(this).find("label").attr("for", "field_" + num);
+          $(this).find(':input').attr("id", "field_" + num).attr("name", "field_" + num);
           num++;
       });
+    }
+
+    // Store data via localStorage
+    function storeData() {
+        var bett = $(":input").serializeArray();
+        localStorage.bett = JSON.stringify(bett);
+        return false;
     }
 
     // Create some table columns
@@ -93,7 +95,7 @@ $(document).ready(function() {
     (function loadData() {
 
         if (localStorage.bett) {
-            alert("There is localStorage data!");
+            //alert("There is localStorage data!");
             // var jsonData = JSON.parse(localStorage.bett);
             // alert($.dump(jsonData));
         }
@@ -103,12 +105,8 @@ $(document).ready(function() {
     // Actions taking place when increment box is checked/unchecked
     (function incrementCheckbox() {
         $(".increment").live("click", function() {
-
             // Add/removes .active class and checks/unchecks input checkbox
-
-            var l = $(this).find("label"),
-                i = $(this).find("input");
-
+            var l = $(this).find("label"), i = $(this).find("input");
             if (l.hasClass("active")) {
                 l.removeClass("active");
                 i.removeAttr("checked");
@@ -116,29 +114,28 @@ $(document).ready(function() {
                 l.addClass("active");
                 i.attr("checked", "checked");
             }
-
             var parent     = $(this).parents("tr"),
                 task_total = parent.find("input:checked").length * 0.25,
                 day_total  = $("body").find("input:checked").length * 0.25;
-
             // Updates task total
             $(parent).find(".task_time_total").text(task_total);
-
             // Updates day total
             $("#day_time_total").text(day_total);
-
-            // Store data via localStorage
-            var bett = $(":input").serializeArray();
-            localStorage.bett = JSON.stringify(bett);
-
+            storeData();
             return false;
+        });
+    }());
 
+    // Actions taking place when task title is filled in
+    (function incrementCheckbox() {
+        $(".t_title").live("keyup", function() {
+            storeData()
         });
     }());
 
     // Add a task
     (function add_task() {
-        var theHTML = $("#task_1").html();
+        var theHTML = $("#task_1").html()
         $("#add_task").click(function() {
             var theId = $("#tasks tbody tr").length + 1;
             $("tbody").append('<tr id="task_' + theId + '">' + theHTML + '</tr>');
@@ -149,7 +146,7 @@ $(document).ready(function() {
 
     // Change styles on task title
     (function taskTitleClass() {
-        var input = $(".task_title input");
+        var input = $(".t_title");
         input.live("blur", function() {
             if ($(this).val()) {
                 $(this).addClass("has_value");
@@ -159,25 +156,6 @@ $(document).ready(function() {
         });
         input.live("focus", function() {
             $(this).removeClass("has_value");
-        });
-    }());
-
-    // Switch task title input to textarea for mobile devices
-    (function inputToTextarea() {
-        $(window).bind("resize load", function() {
-            var input = $(".task_title input, .task_title textarea");
-            input.each(function() {
-                var val  = $(this).val(),
-                    name = $(this).attr("name"),
-                    id   = $(this).attr("id"),
-                    clss = $(this).attr("class"),
-                    atts = 'placeholder="Edit task title&hellip;" autocomplete="off"';
-                if ($(window).width() < 800) {
-                    $(this).replaceWith('<textarea name="' + name + '" id="' + id + '" class="' + clss + '"' + atts + '>' + val + '</textarea>');
-                } else {
-                    $(this).replaceWith('<input name="' + name + '" id="' + id + '" class="' + clss + '"' + atts +'value="' + val + '" />');
-                }
-            });
         });
     }());
 
