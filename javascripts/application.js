@@ -129,13 +129,13 @@ $(document).ready(function() {
     // Actions taking place when task title is filled in
     (function incrementCheckbox() {
         $(".t_title").live("keyup", function() {
-            storeData()
+            storeData();
         });
     }());
 
     // Add a task
     (function add_task() {
-        var theHTML = $("#task_1").html()
+        var theHTML = $("#task_1").html();
         $("#add_task").click(function() {
             var theId = $("#tasks tbody tr").length + 1;
             $("tbody").append('<tr id="task_' + theId + '">' + theHTML + '</tr>');
@@ -162,6 +162,10 @@ $(document).ready(function() {
     // Wipe out localStorage
     (function noSubmit() {
         $("#clear_data").click(function() {
+            $("tbody tr:not(#task_1)").remove();
+            $(":input").val("").removeAttr("checked");
+            $(".increment label").removeClass("active");
+            $(".task_time_total, #day_time_total").text("0");
             delete localStorage.bett;
             return false;
         });
