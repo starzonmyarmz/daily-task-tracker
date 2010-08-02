@@ -48,55 +48,24 @@ $(document).ready(function() {
         $(".t_inc").replaceWith(html);
         // Add unique ids to first tr of increment checkboxes
         var tr = $("#task_1 .task_title, #task_1 .increment");
-        // This will be the html used for creating new rows        
+        // This will be the html used for creating new rows
         rowHTML = $("#task_1").html();
         addUniqueIds(tr);
     }());
 
     // Get todays date
     (function todaysDate() {
-        var d = new Date(), month = d.getMonth(), day = d.getDate(), year = d.getFullYear();
-        switch (month) {
-            case 0:
-                month = "January";
-                break;
-            case 1:
-                month = "February";
-                break;
-            case 2:
-                month = "March";
-                break;
-            case 3:
-                month = "April";
-                break;
-            case 4:
-                month = "May";
-                break;
-            case 5:
-                month = "June";
-                break;
-            case 6:
-                month = "July";
-                break;
-            case 7:
-                month = "August";
-                break;
-            case 8:
-                month = "September";
-                break;
-            case 9:
-                month = "October";
-                break;
-            case 10:
-                month = "November";
-                break;
-            case 11:
-                month = "December";
-                break;
-            default:
-                break;
+        var theDate = new Date(), m = theDate.getMonth(), month = m + 1, d = theDate.getDate(), y = theDate.getFullYear(),
+            months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        if (d < 10) {
+            day = "0" + d;
         }
-        $("#today time").append(month + " " + day + ", " + year);
+        if (month < 10) {
+            month = "0" + month;
+        }
+        $("#today time")
+            .attr("datetime", y + "-" + month + "-" + day)
+            .text(months[m] + " " + d + ", " + y);
     }());
 
     // Load data from localStorage if record exists
