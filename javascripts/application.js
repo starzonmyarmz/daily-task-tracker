@@ -16,8 +16,13 @@ $(document).ready(function() {
     // Adds Unique Ids to increments
     function addUniqueIds(el) {
       $(el).each(function() {
-          $(this).find("label").attr("for", "field_" + num);
-          $(this).find(':input').attr("id", "field_" + num).attr("name", "field_" + num);
+          $(this)
+              .find("label")
+              .attr("for", "field_" + num);
+          $(this)
+              .find(':input')
+              .attr("id", "field_" + num)
+              .attr("name", "field_" + num);
           num++;
       });
     }
@@ -55,8 +60,12 @@ $(document).ready(function() {
 
     // Get todays date
     (function todaysDate() {
-        var theDate = new Date(), m = theDate.getMonth(), month = m + 1, d = theDate.getDate(), y = theDate.getFullYear(),
-            months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var theDate = new Date(),
+            m       = theDate.getMonth(),
+            month   = m + 1,
+            d       = theDate.getDate(),
+            y       = theDate.getFullYear(),
+            months  = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         if (d < 10) {
             day = "0" + d;
         }
@@ -77,20 +86,30 @@ $(document).ready(function() {
             if (numRows > 1) {
                 for (var i = 1; i < numRows; i++) {
                     addRow();
-                    addUniqueIds(tr);
                 }
             }
             // Insert titles and check checkboxes
             for (var i = 0; i < jsonData.length; i++) {
                 var el = $("#" + jsonData[i].name);
                 if (el.is("textarea")) {
-                    el.text(jsonData[i].value);
-                    el.addClass("has_value");
+                    if (jsonData[i].value) {
+                        el.text(jsonData[i].value);
+                        el.addClass("has_value");
+                    }
                 } else {
                     el.attr("checked", "checked");
                     el.prev().addClass("active");
                 }
             }
+            // Updates task time total
+            var task_total;
+            $("tbody tr").each(function() {
+                task_total = $(this).find("input:checked").length * 0.25;
+                $(this).find(".task_time_total").text(task_total);
+            });
+            // Update daily time totals
+            var day_total  = $("body").find("input:checked").length * 0.25;
+            $("#day_time_total").text(day_total);
         }
     }());
 
@@ -109,9 +128,9 @@ $(document).ready(function() {
             var parent     = $(this).parents("tr"),
                 task_total = parent.find("input:checked").length * 0.25,
                 day_total  = $("body").find("input:checked").length * 0.25;
-            // Updates task total
+            // Updates task time total
             $(parent).find(".task_time_total").text(task_total);
-            // Updates day total
+            // Updates daily time total
             $("#day_time_total").text(day_total);
             storeData();
             return false;
@@ -159,7 +178,7 @@ $(document).ready(function() {
         });
     }());
 
-    // Return false if form is submitted - otherwise data will be erased
+    // Return false if form is somehow submitted
     (function noSubmit() {
         $("form").submit(function() {
             return false;
