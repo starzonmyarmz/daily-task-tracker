@@ -10,8 +10,8 @@
 
 $(document).ready(function() {
 
-    // Variable for counting increment checkboxes
-    var num = 0;
+    // Set some variables
+    var num = 0, rowHTML = "";
 
     // Adds Unique Ids to increments
     function addUniqueIds(el) {
@@ -22,25 +22,34 @@ $(document).ready(function() {
       });
     }
 
+    function addRow() {
+        var theId = $("#tasks tbody tr").length + 1;
+        $("tbody").append('<tr id="task_' + theId + '">' + rowHTML + '</tr>');
+        var tr = $("#task_" + theId + " .task_title, #task_" + theId + " .increment");
+        addUniqueIds(tr);
+    }
+
     // Store data via localStorage
     function storeData() {
-        var bett = $(":input").serializeArray();
-        localStorage.bett = JSON.stringify(bett);
+        var data = $("#tasks_form").serializeArray(),
+            rows = { "rows" : $("tbody tr").length };
+        data.unshift(rows);
+        localStorage.bett = JSON.stringify(data);
         return false;
     }
 
     // Create some table columns
-    (function createTableColumns() {
+    (function createFirstRow() {
         var td = $(".t_inc").html(), html = "";
+        // We need to create at least one row
         for (var i = 1; i < 12; i++) {
             html += '<td id="tc_' + i + '" class="t_inc">' + td + '</td>';
         }
         $(".t_inc").replaceWith(html);
-    }());
-
-    // Add unique ids to first tr of increment checkboxes
-    (function addIds() {
+        // Add unique ids to first tr of increment checkboxes
         var tr = $("#task_1 .task_title, #task_1 .increment");
+        // This will be the html used for creating new rows        
+        rowHTML = $("#task_1").html();
         addUniqueIds(tr);
     }());
 
@@ -90,16 +99,30 @@ $(document).ready(function() {
         $("#today time").append(month + " " + day + ", " + year);
     }());
 
-
     // Load data from localStorage if record exists
     (function loadData() {
-
         if (localStorage.bett) {
-            //alert("There is localStorage data!");
-            // var jsonData = JSON.parse(localStorage.bett);
-            // alert($.dump(jsonData));
+            var jsonData = JSON.parse(localStorage.bett),
+                numRows  = jsonData[0].rows;
+            // Create extra rows if necessary
+            if (numRows > 1) {
+                for (var i = 1; i < numRows; i++) {
+                    addRow();
+                    addUniqueIds(tr);
+                }
+            }
+            // Insert titles and check checkboxes
+            for (var i = 0; i < jsonData.length; i++) {
+                var el = $("#" + jsonData[i].name);
+                if (el.is("textarea")) {
+                    el.text(jsonData[i].value);
+                    el.addClass("has_value");
+                } else {
+                    el.attr("checked", "checked");
+                    el.prev().addClass("active");
+                }
+            }
         }
-
     }());
 
     // Actions taking place when increment box is checked/unchecked
@@ -135,12 +158,8 @@ $(document).ready(function() {
 
     // Add a task
     (function add_task() {
-        var theHTML = $("#task_1").html();
         $("#add_task").click(function() {
-            var theId = $("#tasks tbody tr").length + 1;
-            $("tbody").append('<tr id="task_' + theId + '">' + theHTML + '</tr>');
-            var tr = $("#task_" + theId + " .task_title, #task_" + theId + " .increment");
-            addUniqueIds(tr);
+            addRow();
         });
     }());
 
