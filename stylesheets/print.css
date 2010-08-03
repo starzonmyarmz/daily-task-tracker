@@ -2,13 +2,16 @@
  *
  * Title:   Emergent Task Timer
  * Author:  Daniel Marino
- * Revised: July 2010
+ * Revised: August 2010
  *
  */
 
 body {
   background: white;
-  font-size: 12pt;
+  font-size: 10pt;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 header {
@@ -25,151 +28,25 @@ h2#today {
   color: black;
 }
 
-#add_task,
-#clear_data {
+.increment label,
+#add_task, #clear_data {
   display: none;
-}
-
-
-/* Tables
-----------------------------------------------------------------------------------------------------*/
-
-table {
-  border-collapse: collapse;
-  line-height: 1;
-  width: 100%;
-}
-
-th, td {
-  border-bottom: 1px solid #e5e5e5;
-  padding: 5px;
-  text-align: left;
-  vertical-align: middle;
-  width: 56px;
-}
-
-th:first-child {
-  width: auto;
-}
-
-thead th:after {
-  content: ':00';
-}
-
-thead th:first-child:after,
-thead th:last-child:after {
-  content: '';
-}
-
-tfoot td {
-  padding: 10px 5px;
-}
-
-tbody th {
-  font-weight: normal;
-}
-
-tbody td:nth-child(even) {
-  background: #efefef;
-}
-
-tfoot th, tfoot td {
-  background: none;
-  border: 0;
-}
-
-
-/* Forms
-----------------------------------------------------------------------------------------------------*/
-
-.task_title label {
-  display: none;
-}
-
-.task_title textarea {
-  background: -webkit-gradient(linear, 0% 0%, 0% 10%, from(#c3c3c3), to(#fff));
-  background: -moz-linear-gradient(0% 10% 90deg, #fff, #c3c3c3);
-  border: 1px solid #c3c3c3;
-  border-bottom: 1px solid #ddd;
-  border-top: 1px solid #7c7c7c;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 25px;
-  outline: none;
-  overflow: hidden;
-  padding: 5px;
-  resize: none;
-  width: 100%;
-}
-
-.task_title textarea:focus {
-  -webkit-box-shadow: 0 0 3px rgba(4, 175, 239, 1);
-  -moz-box-shadow: 0 0 3px rgba(4, 175, 239, 1);
-  box-shadow: 0 0 3px rgba(4, 175, 239, 1);
-}
-
-.task_title textarea.has_value {
-  background: #fff;
-  border: 0;
-  padding: 6px;
-}
-
-.task_title textarea.has_value:hover {
-  background: rgba(4, 175, 239, .1);
 }
 
 .increment {
-  float: left;
-  height: 25px;
-  overflow: hidden;
-  margin: 0 1px;
-  width: 12px;
-}
-
-.increment label {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#ebebeb));
-  background: -moz-linear-gradient(19% 75% 90deg, #ebebeb, #e5e5e5);
-  border: 1px solid #ccc;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: block;
-  height: 100%;
-  overflow: hidden;
-  text-indent: -5000px;
-  width: 100%;
-}
-
-.increment label:hover {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cecece), to(#d9d9d9));
-  background: -moz-linear-gradient(19% 75% 90deg, #ebebeb, #d9d9d9);
+  overflow: normal;
 }
 
 .increment input {
-  display: none;
+  display: inline-block;
 }
 
-.active {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#62cdf5), to(#04afef)) !important;
-  background: -moz-linear-gradient(19% 75% 90deg, #04afef, #62cdf5) !important;
-  border: 1px solid #00a7e6 !important;
-}
-
-
-/* Media Queries for Portable Devices
-----------------------------------------------------------------------------------------------------*/
-
-@media screen and (max-width:800px) {
+@media print and (max-width:8.5in) {
 
   th, td {
     padding: 2px;
     text-align: center;
-    width: 15px;
+    width: 16px;
   }
 
   th:first-child,
@@ -183,8 +60,7 @@ tfoot th, tfoot td {
   }
 
   .task_title textarea {
-  background: -webkit-gradient(linear, 0% 0%, 0% 3%, from(#c3c3c3), to(#fff));
-  background: -moz-linear-gradient(0% 3% 90deg, #fff, #c3c3c3);
+    background: white;
     height: 80px;
   }
 
@@ -194,42 +70,3 @@ tfoot th, tfoot td {
   }
 
 }
-
-@media screen and (max-width:600px) {
-
-  header {
-    line-height: default;
-  }
-
-  h1 {
-    float: none;
-    font-size: 20px;
-    margin-bottom: 5px;
-    text-align: center;
-  }
-
-  h2#today {
-    font-size: 12px;
-    float: none;
-    line-height: 2;
-    text-align: center;
-  }
-
-}
-
-
-/* Misc
-----------------------------------------------------------------------------------------------------*/
-
-.clearfix:after {
-	clear: both;
-	content: ' ';
-	display: block;
-	font-size: 0;
-	line-height: 0;
-	visibility: hidden;
-	width: 0;
-	height: 0;
-}
-
-

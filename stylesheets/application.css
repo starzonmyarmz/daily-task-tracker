@@ -2,7 +2,7 @@
  *
  * Title:   Emergent Task Timer
  * Author:  Daniel Marino
- * Revised: July 2010
+ * Revised: August 2010
  *
  */
 
@@ -250,8 +250,8 @@ tfoot th, tfoot td {
   }
 
   .task_title textarea {
-  background: -webkit-gradient(linear, 0% 0%, 0% 3%, from(#c3c3c3), to(#fff));
-  background: -moz-linear-gradient(0% 3% 90deg, #fff, #c3c3c3);
+    background: -webkit-gradient(linear, 0% 0%, 0% 3%, from(#c3c3c3), to(#fff));
+    background: -moz-linear-gradient(0% 3% 90deg, #fff, #c3c3c3);
     height: 80px;
   }
 
