@@ -32,6 +32,7 @@ $(document).ready(function() {
         var theId = $("#tasks tbody tr").length + 1;
         $("tbody").append('<tr id="task_' + theId + '">' + rowHTML + '</tr>');
         var tr = $("#task_" + theId + " .title, #task_" + theId + " .inc");
+        $("#task_" + theId).find(".task_title").focus();
         addUniqueIds(tr);
     }
 
@@ -56,6 +57,7 @@ $(document).ready(function() {
         var tr = $("#task_1 .title, #task_1 .inc");
         // This will be the html used for creating new rows
         rowHTML = $("#task_1").html();
+        $("#task_1").find(".task_title").focus();
         addUniqueIds(tr);
     }());
 
