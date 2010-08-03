@@ -6,95 +6,28 @@
  *
  */
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: #00a7e6;
-}
-
 body {
-  background: #fff;
-  font-family: HelveticaNeue-Light, helvetica, arial, verdana, sans-serif;
-  font-size: 12px;
-  line-height: 1.5;
-  margin: 15px;
+  background: white;
+  font-size: 12pt;
 }
 
 header {
-  background: #434343;
-  color: #fff;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  display: block;
-  line-height: 40px;
-  margin: 20px 0;
-  padding: 5px;
+  background: none;
+  border: 1px solid black;
 }
 
 h1 {
-  float: left;
-  font-family: HelveticaNeue-CondensedBold, helvetica, arial, verdana, sans-serif;
-  font-size: 26px;
-  font-weight: bold;
-  margin: 0 5px;
-  text-shadow: 0 -1px 2px rgba(0, 0, 0 , .75);
-  text-transform: uppercase;
+  color: black;
+  text-shadow: none;
 }
 
 h2#today {
-  background: #fff;
-  font-family: HelveticaNeue, helvetica, arial, verdana, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  color: #434343;
-  display: block;
-  float: right;
-  padding: 0 15px;
+  color: black;
 }
 
 #add_task,
 #clear_data {
-  background: #ccc;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  color: #fff;
-  display: inline-block;
-  float: left;
-  font-family: HelveticaNeue, helvetica, arial, verdana, sans-serif;
-  font-size: 11px;
-  line-height: 19px;
-  margin-right: 5px;
-  padding: 0 5px;
-  opacity: .8;
-  text-decoration: none;
-  text-shadow: 0 -1px 2px rgba(0, 0, 0, .15);
-  -webkit-transition: opacity .2s linear;
-  transition: opacity .2s linear;
-}
-
-#add_task {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#5fd053), to(#18cb05));
-  background: -moz-linear-gradient(100% 100% 90deg, #18cb05, #5fd053);
-  border: 1px solid #12c400;
-}
-
-#clear_data {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c8c8c8), to(#a9a9a9));
-  background: -moz-linear-gradient(100% 100% 90deg, #a9a9a9, #c8c8c8);
-  border: 1px solid #a4a4a4;
-}
-
-#add_task:hover,
-#clear_data:hover {
-  opacity: 1;
+  display: none;
 }
 
 

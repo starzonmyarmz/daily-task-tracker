@@ -2,7 +2,7 @@
  *
  * Title:   Emergent Task Timer
  * Author:  Daniel Marino
- * Revised: July 2010
+ * Revised: August 2010
  *
  */
 
@@ -65,7 +65,8 @@ $(document).ready(function() {
             month   = m + 1,
             d       = theDate.getDate(),
             y       = theDate.getFullYear(),
-            months  = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            months  = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            day;
         if (d < 10) {
             day = "0" + d;
         }
@@ -84,7 +85,7 @@ $(document).ready(function() {
                 numRows  = jsonData[0].rows;
             // Create extra rows if necessary
             if (numRows > 1) {
-                for (var i = 1; i < numRows; i++) {
+                for (var x = 1; x < numRows; x++) {
                     addRow();
                 }
             }
@@ -184,5 +185,7 @@ $(document).ready(function() {
             return false;
         });
     }());
+
+
 
 });
