@@ -109,10 +109,10 @@ table {
 
 th, td {
   border-bottom: 1px solid #e5e5e5;
-  padding: 5px;
+  padding: 4px;
   text-align: left;
   vertical-align: middle;
-  width: 56px;
+  width: 48px;
 }
 
 th:first-child {
@@ -153,7 +153,7 @@ tfoot th, tfoot td {
   display: none;
 }
 
-.title textarea {
+.task_title {
   background: -webkit-gradient(linear, 0% 0%, 0% 10%, from(#c3c3c3), to(#fff));
   background: -moz-linear-gradient(0% 10% 90deg, #fff, #c3c3c3);
   border: 1px solid #c3c3c3;
@@ -164,36 +164,36 @@ tfoot th, tfoot td {
   box-sizing: border-box;
   font-family: "Lucida Grande", "Lucida Sans", sans-serif;
   font-size: 11px;
-  height: 25px;
+  height: 23px;
   outline: none;
   overflow: hidden;
-  padding: 5px;
+  padding: 4px;
   resize: none;
   width: 100%;
 }
 
-.title textarea:focus {
+.task_title:focus {
   -webkit-box-shadow: 0 0 3px rgba(4, 175, 239, 1);
   -moz-box-shadow: 0 0 3px rgba(4, 175, 239, 1);
   box-shadow: 0 0 3px rgba(4, 175, 239, 1);
 }
 
-.title textarea.has_value {
+.task_title.has_value {
   background: #fff;
   border: 0;
   padding: 6px;
 }
 
-.title textarea.has_value:hover {
+.task_title.has_value:hover {
   background: rgba(4, 175, 239, .1);
 }
 
 .inc {
   float: left;
-  height: 25px;
+  height: 20px;
   overflow: hidden;
   margin: 0 1px;
-  width: 12px;
+  width: 10px;
 }
 
 .inc label {
@@ -233,12 +233,12 @@ tfoot th, tfoot td {
 /* Media Queries for Portable Devices
 ----------------------------------------------------------------------------------------------------*/
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:799px) {
 
   th, td {
     padding: 2px;
     text-align: center;
-    width: 15px;
+    width: 12px;
   }
 
   th:first-child,
@@ -251,20 +251,20 @@ tfoot th, tfoot td {
     content: '';
   }
 
-  .title textarea {
+  .task_title {
     background: -webkit-gradient(linear, 0% 0%, 0% 3%, from(#c3c3c3), to(#fff));
     background: -moz-linear-gradient(0% 3% 90deg, #fff, #c3c3c3);
-    height: 80px;
+    height: 82px;
   }
 
-  .increment {
+  .inc {
     height: 20px;
     margin: 1px;
   }
 
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:599px) {
 
   header {
     line-height: default;
