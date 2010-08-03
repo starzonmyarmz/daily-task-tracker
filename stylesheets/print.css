@@ -28,16 +28,16 @@ h2#today {
   color: black;
 }
 
-.increment label,
+.inc label,
 #add_task, #clear_data {
   display: none;
 }
 
-.increment {
+.inc {
   overflow: normal;
 }
 
-.increment input {
+.inc input {
   display: inline-block;
 }
 
@@ -59,12 +59,12 @@ h2#today {
     content: '';
   }
 
-  .task_title textarea {
+  .title textarea {
     background: white;
     height: 80px;
   }
 
-  .increment {
+  .inc {
     height: 20px;
     margin: 1px;
   }

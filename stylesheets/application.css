@@ -149,11 +149,11 @@ tfoot th, tfoot td {
 /* Forms
 ----------------------------------------------------------------------------------------------------*/
 
-.task_title label {
+.title label {
   display: none;
 }
 
-.task_title textarea {
+.title textarea {
   background: -webkit-gradient(linear, 0% 0%, 0% 10%, from(#c3c3c3), to(#fff));
   background: -moz-linear-gradient(0% 10% 90deg, #fff, #c3c3c3);
   border: 1px solid #c3c3c3;
@@ -170,23 +170,23 @@ tfoot th, tfoot td {
   width: 100%;
 }
 
-.task_title textarea:focus {
+.title textarea:focus {
   -webkit-box-shadow: 0 0 3px rgba(4, 175, 239, 1);
   -moz-box-shadow: 0 0 3px rgba(4, 175, 239, 1);
   box-shadow: 0 0 3px rgba(4, 175, 239, 1);
 }
 
-.task_title textarea.has_value {
+.title textarea.has_value {
   background: #fff;
   border: 0;
   padding: 6px;
 }
 
-.task_title textarea.has_value:hover {
+.title textarea.has_value:hover {
   background: rgba(4, 175, 239, .1);
 }
 
-.increment {
+.inc {
   float: left;
   height: 25px;
   overflow: hidden;
@@ -194,7 +194,7 @@ tfoot th, tfoot td {
   width: 12px;
 }
 
-.increment label {
+.inc label {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#ebebeb));
   background: -moz-linear-gradient(19% 75% 90deg, #ebebeb, #e5e5e5);
   border: 1px solid #ccc;
@@ -212,12 +212,12 @@ tfoot th, tfoot td {
   width: 100%;
 }
 
-.increment label:hover {
+.inc label:hover {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cecece), to(#d9d9d9));
   background: -moz-linear-gradient(19% 75% 90deg, #ebebeb, #d9d9d9);
 }
 
-.increment input {
+.inc input {
   display: none;
 }
 
@@ -249,7 +249,7 @@ tfoot th, tfoot td {
     content: '';
   }
 
-  .task_title textarea {
+  .title textarea {
     background: -webkit-gradient(linear, 0% 0%, 0% 3%, from(#c3c3c3), to(#fff));
     background: -moz-linear-gradient(0% 3% 90deg, #fff, #c3c3c3);
     height: 80px;
@@ -298,5 +298,3 @@ tfoot th, tfoot td {
 	width: 0;
 	height: 0;
 }
-
-

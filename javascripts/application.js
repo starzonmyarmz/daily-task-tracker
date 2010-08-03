@@ -11,7 +11,8 @@
 $(document).ready(function() {
 
     // Set some variables
-    var num = 0, rowHTML = "";
+    var num = 0, rowHTML = "", hv = "has_value",
+    increment = $(".increment"), tt = $(".task_title");
 
     // Adds Unique Ids to increments
     function addUniqueIds(el) {
@@ -30,7 +31,7 @@ $(document).ready(function() {
     function addRow() {
         var theId = $("#tasks tbody tr").length + 1;
         $("tbody").append('<tr id="task_' + theId + '">' + rowHTML + '</tr>');
-        var tr = $("#task_" + theId + " .task_title, #task_" + theId + " .increment");
+        var tr = $("#task_" + theId + " .title, #task_" + theId + " .inc");
         addUniqueIds(tr);
     }
 
@@ -45,14 +46,14 @@ $(document).ready(function() {
 
     // Create some table columns
     (function createFirstRow() {
-        var td = $(".t_inc").html(), html = "";
+        var td = increment.html(), html = "";
         // We need to create at least one row
         for (var i = 1; i < 12; i++) {
             html += '<td id="tc_' + i + '" class="t_inc">' + td + '</td>';
         }
-        $(".t_inc").replaceWith(html);
+        increment.replaceWith(html);
         // Add unique ids to first tr of increment checkboxes
-        var tr = $("#task_1 .task_title, #task_1 .increment");
+        var tr = $("#task_1 .title, #task_1 .inc");
         // This will be the html used for creating new rows
         rowHTML = $("#task_1").html();
         addUniqueIds(tr);
@@ -95,7 +96,7 @@ $(document).ready(function() {
                 if (el.is("textarea")) {
                     if (jsonData[i].value) {
                         el.text(jsonData[i].value);
-                        el.addClass("has_value");
+                        el.addClass(hv);
                     }
                 } else {
                     el.attr("checked", "checked");
@@ -106,17 +107,17 @@ $(document).ready(function() {
             var task_total;
             $("tbody tr").each(function() {
                 task_total = $(this).find("input:checked").length * 0.25;
-                $(this).find(".task_time_total").text(task_total);
+                $(this).find(".task_total").text(task_total);
             });
             // Update daily time totals
             var day_total  = $("body").find("input:checked").length * 0.25;
-            $("#day_time_total").text(day_total);
+            $("#day_total").text(day_total);
         }
     }());
 
     // Actions taking place when increment box is checked/unchecked
     (function incrementCheckbox() {
-        $(".increment").live("click", function() {
+        $(".inc").live("click", function() {
             // Add/removes .active class and checks/unchecks input checkbox
             var l = $(this).find("label"), i = $(this).find("input");
             if (l.hasClass("active")) {
@@ -130,18 +131,11 @@ $(document).ready(function() {
                 task_total = parent.find("input:checked").length * 0.25,
                 day_total  = $("body").find("input:checked").length * 0.25;
             // Updates task time total
-            $(parent).find(".task_time_total").text(task_total);
+            $(parent).find(".task_total").text(task_total);
             // Updates daily time total
-            $("#day_time_total").text(day_total);
+            $("#day_total").text(day_total);
             storeData();
             return false;
-        });
-    }());
-
-    // Actions taking place when task title is filled in
-    (function incrementCheckbox() {
-        $(".t_title").live("keyup", function() {
-            storeData();
         });
     }());
 
@@ -152,18 +146,20 @@ $(document).ready(function() {
         });
     }());
 
-    // Change styles on task title
+    // Task Title Actions
     (function taskTitleClass() {
-        var input = $(".t_title");
-        input.live("blur", function() {
+        tt.live("blur", function() {
             if ($(this).val()) {
-                $(this).addClass("has_value");
+                $(this).addClass(hv);
             } else {
-                $(this).removeClass("has_value");
+                $(this).removeClass(hv);
             }
         });
-        input.live("focus", function() {
-            $(this).removeClass("has_value");
+        tt.live("focus", function() {
+            $(this).removeClass(hv);
+        });
+        tt.live("keyup", function() {
+            storeData();
         });
     }());
 
@@ -171,9 +167,9 @@ $(document).ready(function() {
     (function noSubmit() {
         $("#clear_data").click(function() {
             $("tbody tr:not(#task_1)").remove();
-            $(":input").val("").removeAttr("checked");
-            $(".increment label").removeClass("active");
-            $(".task_time_total, #day_time_total").text("0");
+            $(":input").val("").removeAttr("checked").removeClass(hv);
+            $(".inc label").removeClass("active");
+            $(".task_total, #day_total").text("0");
             delete localStorage.bett;
             return false;
         });
@@ -185,7 +181,5 @@ $(document).ready(function() {
             return false;
         });
     }());
-
-
 
 });
