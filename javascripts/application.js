@@ -1,6 +1,6 @@
 /*
  *
- * Title:   Emergent Task Timer
+ * Title:   Daily Task Tracker
  * Author:  Daniel Marino
  * Revised: August 2010
  *
@@ -40,7 +40,7 @@ $(document).ready(function() {
         var data = $("#tasks_form").serializeArray(),
             rows = { "rows" : $("tbody tr").length };
         data.unshift(rows);
-        localStorage.bett = JSON.stringify(data);
+        localStorage.dtt = JSON.stringify(data);
         return false;
     }
 
@@ -67,6 +67,8 @@ $(document).ready(function() {
             d       = theDate.getDate(),
             y       = theDate.getFullYear(),
             months  = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            theDotw = theDate.getDay(),
+            dotw    = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             day;
         if (d < 10) {
             day = "0" + d;
@@ -76,13 +78,13 @@ $(document).ready(function() {
         }
         $("#today time")
             .attr("datetime", y + "-" + month + "-" + day)
-            .text(months[m] + " " + d + ", " + y);
+            .text(dotw[theDotw] + ", " + months[m] + " " + d + ", " + y);
     }());
 
     // Load data from localStorage if record exists
     (function loadData() {
-        if (localStorage.bett) {
-            var jsonData = JSON.parse(localStorage.bett),
+        if (localStorage.dtt) {
+            var jsonData = JSON.parse(localStorage.dtt),
                 numRows  = jsonData[0].rows;
             // Create extra rows if necessary
             if (numRows > 1) {
@@ -170,7 +172,7 @@ $(document).ready(function() {
             $(":input").val("").removeAttr("checked").removeClass(hv);
             $(".inc label").removeClass("active");
             $(".task_total, #day_total").text("0");
-            delete localStorage.bett;
+            delete localStorage.dtt;
             return false;
         });
     }());
