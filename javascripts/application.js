@@ -6,7 +6,7 @@
  *
  */
 
-/*global window, document, localStorage $ */
+/*global window, document, localStorage, $ */
 
 $(document).ready(function() {
 
@@ -165,10 +165,10 @@ $(document).ready(function() {
         });
         // Blur textarea and prevents line break when Enter key is pressed
         tt.live("keypress", function(e) {
-            if (e.keyCode == 13) {
+            if (e.keyCode === 13) {
             		$(this).blur();
           	}
-        })
+        });
     }());
 
     // Wipe out localStorage
