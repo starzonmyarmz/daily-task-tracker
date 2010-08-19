@@ -163,6 +163,12 @@ $(document).ready(function() {
         tt.live("keyup", function() {
             storeData();
         });
+        // Blur textarea and prevents line break when Enter key is pressed
+        tt.live("keypress", function(e) {
+            if (e.keyCode == 13) {
+            		$(this).blur();
+          	}
+        })
     }());
 
     // Wipe out localStorage

@@ -65,6 +65,10 @@ h2#today {
   padding: 0 15px;
 }
 
+p {
+  margin-bottom: 10px;
+}
+
 #add_task,
 #clear_data {
   background: #ccc;
