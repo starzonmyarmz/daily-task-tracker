@@ -278,7 +278,7 @@ tfoot th, tfoot td {
 
 }
 
-@media screen and (max-width:599px) {
+@media screen and (max-device-width: 480px) {
 
   header {
     line-height: default;
