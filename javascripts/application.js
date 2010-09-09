@@ -34,7 +34,7 @@ $(document).ready(function() {
         $("tbody").append('<tr id="task_' + theId + '">' + rowHTML + '</tr>');
         var tr = $("#task_" + theId + " .title, #task_" + theId + " .inc");
         addUniqueIds(tr);
-        $("#task_" + theId + " .task_title").focus();
+        $(".task_title:last-child").focus();
     }
 
     // Store data via localStorage
@@ -161,6 +161,12 @@ $(document).ready(function() {
     (function add_task() {
         $("#add_task").click(function() {
             addRow();
+        });
+        $(document).keydown(function(e) {
+            if (e.shiftKey && e.keyCode === 13) {
+                addRow();
+                return false;
+            }
         });
     }());
 
