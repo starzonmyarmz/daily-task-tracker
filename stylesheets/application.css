@@ -304,6 +304,12 @@ tfoot th, tfoot td {
 /* Misc
 ----------------------------------------------------------------------------------------------------*/
 
+tbody td::selection,
+.inc::selection,
+.inc label::selection {
+  background-color: transparent;
+}
+
 .clearfix:after {
 	clear: both;
 	content: ' ';

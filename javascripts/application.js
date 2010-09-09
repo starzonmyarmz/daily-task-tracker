@@ -12,7 +12,8 @@ $(document).ready(function() {
 
     // Set some variables
     var num = 0, rowHTML = "", hv = "has_value",
-    increment = $(".increment"), tt = $(".task_title");
+    increment = $(".increment"), tt = $(".task_title"),
+    lastSelected;
 
     // Adds Unique Ids to increments
     function addUniqueIds(el) {
@@ -119,24 +120,38 @@ $(document).ready(function() {
 
     // Actions taking place when increment box is checked/unchecked
     (function incrementCheckbox() {
-        $(".inc").live("click", function() {
-            // Add/removes .active class and checks/unchecks input checkbox
-            var l = $(this).find("label"), i = $(this).find("input");
-            if (l.hasClass("active")) {
-                l.removeClass("active");
-                i.removeAttr("checked");
-            } else {
-                l.addClass("active");
-                i.attr("checked", "checked");
+        $(".inc").live("click", function(e) {
+
+            var thisLabel = $(this).find("label"),
+                thisInput = $(this).find("input");
+
+            function checkOrUncheck(l, i) {
+                if (l.hasClass("active")) {
+                    l.removeClass("active");
+                    i.removeAttr("checked");
+                } else {
+                    l.addClass("active");
+                    i.attr("checked", "checked");
+                }
             }
+
+            // Add/removes .active class and checks/unchecks input checkbox
+            checkOrUncheck(thisLabel, thisInput);
+
             var parent     = $(this).parents("tr"),
                 task_total = parent.find("input:checked").length * 0.25,
                 day_total  = $("body").find("input:checked").length * 0.25;
+
             // Updates task time total
             $(parent).find(".task_total").text(task_total);
+
             // Updates daily time total
             $("#day_total").text(day_total);
             storeData();
+
+            // Makes this click the last field selected
+            lastSelected = thisInput.attr("id");
+
             return false;
         });
     }());
