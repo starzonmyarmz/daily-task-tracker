@@ -34,6 +34,7 @@ $(document).ready(function() {
         $("tbody").append('<tr id="task_' + theId + '">' + rowHTML + '</tr>');
         var tr = $("#task_" + theId + " .title, #task_" + theId + " .inc");
         addUniqueIds(tr);
+        $("#task_" + theId + " .task_title").focus();
     }
 
     // Store data via localStorage
