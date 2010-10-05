@@ -2,7 +2,7 @@
  *
  * Title:   Daily Task Tracker
  * Author:  Daniel Marino
- * Revised: August 2010
+ * Revised: October 2010
  *
  */
 
@@ -209,6 +209,14 @@ $(document).ready(function() {
     (function noSubmit() {
         $("form").submit(function() {
             return false;
+        });
+    }());
+
+    // Instructions
+    (function toggleInstructions() {
+        $(".instructions").hide();
+        $(".help").click(function() {
+            $(".instructions").toggle();
         });
     }());
 

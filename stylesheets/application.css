@@ -2,7 +2,7 @@
  *
  * Title:   Daily Task Tracker
  * Author:  Daniel Marino
- * Revised: August 2010
+ * Revised: October 2010
  *
  */
 
@@ -244,6 +244,25 @@ tfoot th, tfoot td {
 }
 
 
+/* Instructions
+----------------------------------------------------------------------------------------------------*/
+
+.instructions {
+  background: #efefef;
+  border: 1px solid #ccc;
+  padding: 10px 20px 5px;
+}
+
+.instructions ul {
+  margin-left: 5px;
+}
+
+.instructions li {
+  list-style: circle;
+  margin-bottom: 5px;
+}
+
+
 /* Media Queries for Portable Devices
 ----------------------------------------------------------------------------------------------------*/
 
@@ -303,6 +322,14 @@ tfoot th, tfoot td {
 
 /* Misc
 ----------------------------------------------------------------------------------------------------*/
+
+.help {
+  float: left;
+}
+
+.sosumi {
+  float: right;
+}
 
 tbody td::selection,
 .inc::selection,
