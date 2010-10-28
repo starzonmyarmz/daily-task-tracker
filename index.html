@@ -48,14 +48,17 @@
             <a href="#" id="add_task">Add Task</a>
             <a href="#" id="clear_data">Clear All Tasks</a>
           </td>
-          <td colspan="1"><span id="day_total">0</span></td>
+          <td><span id="day_total">0</span></td>
         </tr>
       </tfoot>
       <tbody>
         <tr id="task_1">
           <th class="title">
-            <label>Task Title</label>
-            <textarea class="task_title" placeholder="Edit task title&hellip;"></textarea>
+            <div>
+              <label>Task Title</label>
+              <textarea class="task_title" placeholder="Edit task title&hellip;"></textarea>
+              <a href="#" class="delete_task">&times;</a>
+            </div>
           </th>
           <td class="increment">
             <div class="inc"><label>:15</label><input type="checkbox" /></div>
@@ -80,7 +83,7 @@
 <section class="instructions">
   <ul>
     <li>Each bubble represents 15 minutes.</li>
-    <li>Click "Add Task" or press <code>SHIFT + ENTER</code> will create a new task.</li>
+    <li>Click "Add Task" or press <code>SHIFT + ENTER</code> to create a new task.</li>
     <li>Enter a task description, and check a bubble for the amount of time you spent on it.</li>
     <li>Your tasks and time spent are automatically saved using <a href="http://diveintohtml5.org/storage.html" target="_blank">local storage</a>.</li>
     <li>Click "Clear All Tasks" to erase all tasks (this will also erase local storage).</li>

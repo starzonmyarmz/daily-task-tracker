@@ -158,7 +158,7 @@ $(document).ready(function() {
     }());
 
     // Add a task
-    (function add_task() {
+    (function addTask() {
         $("#add_task").click(function() {
             addRow();
         });
@@ -167,6 +167,18 @@ $(document).ready(function() {
                 addRow();
                 return false;
             }
+        });
+    }());
+
+    // Delete a task
+    (function deleteTask() {
+        $(".delete_task").live("click", function() {
+            $(this).parents("tr").remove();
+            num = 0 // Resets global counter for resetting field ids & names
+            var all_fields = $(".title, .inc");
+            addUniqueIds(all_fields);
+            storeData();
+            return false;
         });
     }());
 
