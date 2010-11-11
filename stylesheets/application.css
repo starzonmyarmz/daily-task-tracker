@@ -69,9 +69,9 @@ p {
   margin-bottom: 10px;
 }
 
-#add_task,
-#clear_data {
+.button {
   background: #ccc;
+  border: 1px solid #ccc;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -91,6 +91,10 @@ p {
   transition: opacity .2s linear;
 }
 
+.button:hover {
+  opacity: 1;
+}
+
 #add_task {
   background: #00de36;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#5fd053), to(#18cb05));
@@ -103,11 +107,6 @@ p {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c8c8c8), to(#a9a9a9));
   background: -moz-linear-gradient(100% 100% 90deg, #a9a9a9, #c8c8c8);
   border: 1px solid #a4a4a4;
-}
-
-#add_task:hover,
-#clear_data:hover {
-  opacity: 1;
 }
 
 

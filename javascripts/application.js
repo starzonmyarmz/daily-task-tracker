@@ -174,7 +174,7 @@ $(document).ready(function() {
     (function deleteTask() {
         $(".delete_task").live("click", function() {
             $(this).parents("tr").remove();
-            num = 0 // Resets global counter for resetting field ids & names
+            num = 0; // Resets global counter for resetting field ids & names
             var all_fields = $(".title, .inc");
             addUniqueIds(all_fields);
             storeData();
@@ -205,6 +205,22 @@ $(document).ready(function() {
         });
     }());
 
+    // Download CSV
+    (function downloadCSV() {
+        // Cycle through each row and create the comma seperated format
+        $("#download_csv").live("click", function() {
+            var csvHead = '"Task Title", "Time Spent"',
+                csvTrTitle, csvTrTotal, csvOut,
+                csvOut = csvHead + "\n";
+            $("tbody tr").each(function() {
+                csvTrTitle = $(this).find(".task_title").val();
+                csvTrTotal = $(this).find(".task_total").text();
+                csvOut = csvOut + '"' + csvTrTitle + '"' + ", " + csvTrTotal + "\n";
+            });
+            alert(csvOut);
+        });
+    }());
+
     // Wipe out localStorage
     (function noSubmit() {
         $("#clear_data").click(function() {
@@ -226,9 +242,16 @@ $(document).ready(function() {
 
     // Instructions
     (function toggleInstructions() {
-        $(".instructions").hide();
+        var i = $(".instructions");
+        i.hide();
+        // Can't use jQuery toggle() because it uses display inline
+        // which messes up the layout of the instructions.
         $(".help").click(function() {
-            $(".instructions").toggle();
+            if (i.css("display") == "none") {
+                i.css("display", "block");
+            } else {
+                i.css("display", "none");
+            }
         });
     }());
 
