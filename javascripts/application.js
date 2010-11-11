@@ -49,11 +49,9 @@ $(document).ready(function() {
     // Generate CSV
     function generateCSV() {
         var csvHead = "%22Task%20Title%22%2C%22Time%20Spent%22",
-            theDataUri = $("#download_csv").val(),
-            csvTrTitle, csvTrTotal, csvOut,
-            csvOut = csvHead + "%0A";
+            csvTrTitle, csvTrTotal, csvOut = csvHead + "%0A";
         $("tbody tr").each(function() {
-            csvTrTitle = $(this).find(".task_title").val(),
+            csvTrTitle = $(this).find(".task_title").val();
             csvTrTotal = $(this).find(".task_total").text();
             csvOut = csvOut + "%22" + csvTrTitle + "%22" + "%2C" + csvTrTotal + "%0A";
         });
@@ -236,6 +234,11 @@ $(document).ready(function() {
             return false;
         });
     }());
+    
+    // No left click... Need to right-click, save as... bummer
+    (function noLeftClickToExport() {
+    
+    }());
 
     // Return false if form is somehow submitted
     (function noSubmit() {
@@ -251,7 +254,7 @@ $(document).ready(function() {
         // Can't use jQuery toggle() because it uses display inline
         // which messes up the layout of the instructions.
         $(".help").click(function() {
-            if (i.css("display") == "none") {
+            if (i.css("display") === "none") {
                 i.css("display", "block");
             } else {
                 i.css("display", "none");
