@@ -45,6 +45,20 @@ $(document).ready(function() {
         localStorage.dtt = JSON.stringify(data);
         return false;
     }
+    
+    // Generate CSV
+    function generateCSV() {
+        var csvHead = "%22Task%20Title%22%2C%22Time%20Spent%22",
+            theDataUri = $("#download_csv").val(),
+            csvTrTitle, csvTrTotal, csvOut,
+            csvOut = csvHead + "%0A";
+        $("tbody tr").each(function() {
+            csvTrTitle = $(this).find(".task_title").val(),
+            csvTrTotal = $(this).find(".task_total").text();
+            csvOut = csvOut + "%22" + csvTrTitle + "%22" + "%2C" + csvTrTotal + "%0A";
+        });
+        $("#download_csv").attr("href", "data:text/csv," + csvOut.replace(/ /g, "%20"));
+    }
 
     // Create some table columns
     (function createFirstRow() {
@@ -149,6 +163,9 @@ $(document).ready(function() {
             // Updates daily time total
             $("#day_total").text(day_total);
             storeData();
+            
+            // Updates CSV
+            generateCSV();
 
             // Makes this click the last field selected
             lastSelected = thisInput.attr("id");
@@ -178,6 +195,7 @@ $(document).ready(function() {
             var all_fields = $(".title, .inc");
             addUniqueIds(all_fields);
             storeData();
+            generateCSV();
             return false;
         });
     }());
@@ -196,28 +214,13 @@ $(document).ready(function() {
         });
         tt.live("keyup", function() {
             storeData();
+            generateCSV();
         });
         // Blur textarea and prevents line break when Enter key is pressed
         tt.live("keypress", function(e) {
             if (e.keyCode === 13) {
             		$(this).blur();
           	}
-        });
-    }());
-
-    // Download CSV
-    (function downloadCSV() {
-        // Cycle through each row and create the comma seperated format
-        $("#download_csv").live("click", function() {
-            var csvHead = '"Task Title", "Time Spent"',
-                csvTrTitle, csvTrTotal, csvOut,
-                csvOut = csvHead + "\n";
-            $("tbody tr").each(function() {
-                csvTrTitle = $(this).find(".task_title").val();
-                csvTrTotal = $(this).find(".task_total").text();
-                csvOut = csvOut + '"' + csvTrTitle + '"' + ", " + csvTrTotal + "\n";
-            });
-            alert(csvOut);
         });
     }());
 
@@ -229,6 +232,7 @@ $(document).ready(function() {
             $(".inc label").removeClass("active");
             $(".task_total, #day_total").text("0");
             delete localStorage.dtt;
+            generateCSV();
             return false;
         });
     }());
