@@ -45,18 +45,6 @@ $(document).ready(function() {
         localStorage.dtt = JSON.stringify(data);
         return false;
     }
-    
-    // Generate CSV
-    function generateCSV() {
-        var csvHead = "%22Task%20Title%22%2C%22Time%20Spent%22",
-            csvTrTitle, csvTrTotal, csvOut = csvHead + "%0A";
-        $("tbody tr").each(function() {
-            csvTrTitle = $(this).find(".task_title").val();
-            csvTrTotal = $(this).find(".task_total").text();
-            csvOut = csvOut + "%22" + csvTrTitle + "%22" + "%2C" + csvTrTotal + "%0A";
-        });
-        $("#download_csv").attr("href", "data:text/csv," + csvOut.replace(/ /g, "%20"));
-    }
 
     // Create some table columns
     (function createFirstRow() {
@@ -161,9 +149,6 @@ $(document).ready(function() {
             // Updates daily time total
             $("#day_total").text(day_total);
             storeData();
-            
-            // Updates CSV
-            generateCSV();
 
             // Makes this click the last field selected
             lastSelected = thisInput.attr("id");
@@ -189,11 +174,10 @@ $(document).ready(function() {
     (function deleteTask() {
         $(".delete_task").live("click", function() {
             $(this).parents("tr").remove();
-            num = 0; // Resets global counter for resetting field ids & names
+            num = 0 // Resets global counter for resetting field ids & names
             var all_fields = $(".title, .inc");
             addUniqueIds(all_fields);
             storeData();
-            generateCSV();
             return false;
         });
     }());
@@ -212,7 +196,6 @@ $(document).ready(function() {
         });
         tt.live("keyup", function() {
             storeData();
-            generateCSV();
         });
         // Blur textarea and prevents line break when Enter key is pressed
         tt.live("keypress", function(e) {
@@ -230,14 +213,8 @@ $(document).ready(function() {
             $(".inc label").removeClass("active");
             $(".task_total, #day_total").text("0");
             delete localStorage.dtt;
-            generateCSV();
             return false;
         });
-    }());
-    
-    // No left click... Need to right-click, save as... bummer
-    (function noLeftClickToExport() {
-    
     }());
 
     // Return false if form is somehow submitted
@@ -249,16 +226,9 @@ $(document).ready(function() {
 
     // Instructions
     (function toggleInstructions() {
-        var i = $(".instructions");
-        i.hide();
-        // Can't use jQuery toggle() because it uses display inline
-        // which messes up the layout of the instructions.
+        $(".instructions").hide();
         $(".help").click(function() {
-            if (i.css("display") === "none") {
-                i.css("display", "block");
-            } else {
-                i.css("display", "none");
-            }
+            $(".instructions").toggle();
         });
     }());
 
