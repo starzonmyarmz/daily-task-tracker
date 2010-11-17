@@ -46,6 +46,18 @@ $(document).ready(function() {
         return false;
     }
 
+    // Generate CSV
+    function generateCSV() {
+        var csvHead = "Task Title, Time Spent",
+            csvTrTitle, csvTrTotal, csvOut = csvHead + "\n";
+        $("tbody tr").each(function() {
+            csvTrTitle = $(this).find(".task_title").val();
+            csvTrTotal = $(this).find(".task_total").text();
+            csvOut = csvOut + '"' + csvTrTitle + '"' + ", " + csvTrTotal + "\n";
+        });
+        $("#download_csv").attr("href", "export.php?data=" + encodeURIComponent(csvOut));
+    }
+
     // Create some table columns
     (function createFirstRow() {
         var td = increment.html(), html = "";
