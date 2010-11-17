@@ -162,6 +162,9 @@ $(document).ready(function() {
             $("#day_total").text(day_total);
             storeData();
 
+            // Updates CSV
+            generateCSV();
+
             // Makes this click the last field selected
             lastSelected = thisInput.attr("id");
 
@@ -190,6 +193,7 @@ $(document).ready(function() {
             var all_fields = $(".title, .inc");
             addUniqueIds(all_fields);
             storeData();
+            generateCSV();
             return false;
         });
     }());
@@ -208,6 +212,7 @@ $(document).ready(function() {
         });
         tt.live("keyup", function() {
             storeData();
+            generateCSV();
         });
         // Blur textarea and prevents line break when Enter key is pressed
         tt.live("keypress", function(e) {
@@ -225,6 +230,7 @@ $(document).ready(function() {
             $(".inc label").removeClass("active");
             $(".task_total, #day_total").text("0");
             delete localStorage.dtt;
+            generateCSV();
             return false;
         });
     }());
