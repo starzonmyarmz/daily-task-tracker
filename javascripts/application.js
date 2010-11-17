@@ -2,7 +2,7 @@
  *
  * Title:   Daily Task Tracker
  * Author:  Daniel Marino
- * Revised: October 2010
+ * Revised: November 2010
  *
  */
 
@@ -244,9 +244,16 @@ $(document).ready(function() {
 
     // Instructions
     (function toggleInstructions() {
-        $(".instructions").hide();
+        var i = $(".instructions");
+        i.hide();
+        // Can't use jQuery toggle() because it uses display inline
+        // which messes up the layout of the instructions.
         $(".help").click(function() {
-            $(".instructions").toggle();
+            if (i.css("display") === "none") {
+                i.css("display", "block");
+            } else {
+                i.css("display", "none");
+            }
         });
     }());
 
