@@ -128,6 +128,8 @@ $(document).ready(function() {
             // Update daily time totals
             var day_total  = $("body").find("input:checked").length * 0.25;
             $("#day_total").text(day_total);
+            // Load CSV Content
+            generateCSV();
         }
     }());
 
