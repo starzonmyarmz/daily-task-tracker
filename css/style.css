@@ -84,9 +84,6 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active { outline: none; }
 
-a, a:active, a:visited { color: #607890; }
-a:hover { color: #036; }
-
 ul, ol { margin-left: 2em; }
 ol { list-style-type: decimal; }
 
@@ -167,7 +164,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 /**
  * Primary styles
  *
- * Author:
+ * Author: Daniel Marino
  */
 
  a {
@@ -195,8 +192,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
  header {
    background: #434343;
    color: #fff;
-   -webkit-border-radius: 10px;
    -moz-border-radius: 10px;
+   border-radius: 10px;
    border-radius: 10px;
    display: block;
    line-height: 40px;
@@ -219,7 +216,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
    font-family: HelveticaNeue, helvetica, arial, verdana, sans-serif;
    font-size: 14px;
    font-weight: normal;
-   -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
    color: #434343;
@@ -235,7 +231,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
  .button {
    background: #ccc;
    border: 1px solid #ccc;
-   -webkit-border-radius: 3px;
    -moz-border-radius: 3px;
    border-radius: 3px;
    color: #fff;
@@ -359,7 +354,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
  }
 
  .task_title:focus {
-   -webkit-box-shadow: 0 0 3px rgba(4, 175, 239, 1);
    -moz-box-shadow: 0 0 3px rgba(4, 175, 239, 1);
    box-shadow: 0 0 3px rgba(4, 175, 239, 1);
  }
@@ -387,7 +381,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#ebebeb));
    background: -moz-linear-gradient(19% 75% 90deg, #ebebeb, #e5e5e5);
    border: 1px solid #ccc;
-   -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
    -webkit-box-sizing: border-box;
@@ -419,7 +412,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
  .delete_task {
    background: #00a7e6;
-   -webkit-border-radius: 25px;
    -moz-border-radius: 25px;
    border-radius: 25px;
    color: #fff;
