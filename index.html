@@ -1,114 +1,145 @@
-<!DOCTYPE html>
-
-<html>
-
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
+  <meta charset="utf-8">
 
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="keywords" content="daily task tracker, gtd, organize tasks, getting things done, task emergent timer, track tasks" />
-  <meta name="description" content="The Daily Task Tracker is a quick and easy to use system to track daily tasks and the amount of time spent on them." />
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Daily Task Tracker</title>
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-  <link rel="stylesheet" media="all" href="stylesheets/application.css" />
-  <link rel="stylesheet" media="print" href="stylesheets/print.css" />
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Uncomment if you are specifically targeting less enabled mobile browsers
+  <link rel="stylesheet" media="handheld" href="css/handheld.css">  -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="js/libs/modernizr-1.7.min.js"></script>
 
 </head>
 
 <body>
 
-<header class="clearfix">
-  <h1>Daily Task Tracker</h1>
-  <h2 id="today">Today is <time></time></h2>
-</header>
+  <header class="clearfix">
+    <h1>Daily Task Tracker</h1>
+    <h2 id="today">Today is <time></time></h2>
+  </header>
 
-<section id="tasks">
-  <form id="tasks_form">
-    <table>
-      <thead>
-        <tr>
-          <th>Task Title</th>
-          <th>8</th>
-          <th>9</th>
-          <th>10</th>
-          <th>11</th>
-          <th>12</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tfoot>
-        <tr>
-          <td colspan="12">
-            <a href="#" class="button" id="add_task">Add Task</a>
-            <a href="#" class="button" id="download_csv">Download CSV</a>
-            <a href="#" class="button" id="clear_data">Clear All Tasks</a>
-          </td>
-          <td><span id="day_total">0</span></td>
-        </tr>
-      </tfoot>
-      <tbody>
-        <tr id="task_1">
-          <th class="title">
-            <div>
-              <label>Task Title</label>
-              <textarea class="task_title" placeholder="Edit task title&hellip;"></textarea>
-              <a href="#" class="delete_task">&times;</a>
-            </div>
-          </th>
-          <td class="increment">
-            <div class="inc"><label>:15</label><input type="checkbox" /></div>
-            <div class="inc"><label>:30</label><input type="checkbox" /></div>
-            <div class="inc"><label>:45</label><input type="checkbox" /></div>
-            <div class="inc"><label>:60</label><input type="checkbox" /></div>
-          </td>
-          <td class="task_total">
-            0
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </form>
-</section>
+  <section id="tasks">
+    <form id="tasks_form">
+      <table>
+        <thead>
+          <tr>
+            <th>Task Title</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="12">
+              <a href="#" class="button" id="add_task">Add Task</a>
+              <a href="#" class="button" id="download_csv">Download CSV</a>
+              <a href="#" class="button" id="clear_data">Clear All Tasks</a>
+            </td>
+            <td><span id="day_total">0</span></td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr id="task_1">
+            <th class="title">
+              <div>
+                <label>Task Title</label>
+                <textarea class="task_title" placeholder="Edit task title&hellip;"></textarea>
+                <a href="#" class="delete_task">&times;</a>
+              </div>
+            </th>
+            <td class="increment">
+              <div class="inc"><label>:15</label><input type="checkbox" /></div>
+              <div class="inc"><label>:30</label><input type="checkbox" /></div>
+              <div class="inc"><label>:45</label><input type="checkbox" /></div>
+              <div class="inc"><label>:60</label><input type="checkbox" /></div>
+            </td>
+            <td class="task_total">
+              0
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </section>
 
-<footer class="clearfix">
-  <p class="help"><a href="#">Toggle Instructions</a></p>
-  <p class="sosumi">Created by <a href="http://iamdanielmarino.com">Daniel Marino</a>. Follow the Daily Task Tracker on <a href="http://github.com/starzonmyarmz/daily-task-tracker/">Github</a>.</p>
-</footer>
+  <footer class="clearfix">
+    <p class="help"><a href="#">Toggle Instructions</a></p>
+    <p class="sosumi">Created by <a href="http://iamdanielmarino.com">Daniel Marino</a>. Follow the Daily Task Tracker on <a href="http://github.com/starzonmyarmz/daily-task-tracker/">Github</a>.</p>
+  </footer>
 
-<section class="instructions">
-  <ul>
-    <li>Each bubble represents 15 minutes.</li>
-    <li>Click "Add Task" or press <code>SHIFT + ENTER</code> to create a new task.</li>
-    <li>Enter a task description, and check a bubble for the amount of time you spent on it.</li>
-    <li>Your tasks and time spent are automatically saved using <a href="http://diveintohtml5.org/storage.html" target="_blank">local storage</a>.</li>
-    <li>Individual tasks can be removed by clicking the "&times;" to the left of the task.</li>
-    <li>Click "Download CSV" to download a <abbr title="Comma Seperated Value">CSV</abbr> file of your current tasks.</li>
-    <li>Click "Clear All Tasks" to erase all tasks (this will also erase local storage).</li>
-    <li>The Daily Task Tracker is inspired by Dave Seah's <a href="http://davidseah.com/blog/the-printable-ceo-iii-emergent-task-timing/" target="_blank">Emergent Task Timer</a>.</li>
-  </ul>
-</section>
+  <section class="instructions">
+    <ul>
+      <li>Each bubble represents 15 minutes.</li>
+      <li>Click "Add Task" or press <code>SHIFT + ENTER</code> to create a new task.</li>
+      <li>Enter a task description, and check a bubble for the amount of time you spent on it.</li>
+      <li>Your tasks and time spent are automatically saved using <a href="http://diveintohtml5.org/storage.html" target="_blank">local storage</a>.</li>
+      <li>Individual tasks can be removed by clicking the "&times;" to the left of the task.</li>
+      <li>Click "Download CSV" to download a <abbr title="Comma Seperated Value">CSV</abbr> file of your current tasks.</li>
+      <li>Click "Clear All Tasks" to erase all tasks (this will also erase local storage).</li>
+      <li>The Daily Task Tracker is inspired by Dave Seah's <a href="http://davidseah.com/blog/the-printable-ceo-iii-emergent-task-timing/" target="_blank">Emergent Task Timer</a>.</li>
+    </ul>
+  </section>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script>!window.jQuery && document.write('<script src="javascripts/jquery.js"><\/script>')</script>
-<script src="javascripts/application.js"></script>
 
-<script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-6248486-3']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.2.min.js'>\x3C/script>")</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <!-- end scripts-->
+
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+
+  <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
+  <script>
+    var _gaq=[["_setAccount","UA-6248486-3"],["_trackPageview"]];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+  </script>
 
 </body>
-
 </html>
