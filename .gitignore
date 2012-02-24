@@ -8,3 +8,8 @@ publish
 
 build/buildinfo.properties
 build/config/buildinfo.properties
+
+# temp
+
+content.html
+js/app-v1.js

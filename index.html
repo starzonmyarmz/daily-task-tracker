@@ -1,132 +1,27 @@
-<!doctype html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-
-  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-       More info: h5bp.com/i/378 -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <title>Daily Task Tracker</title>
-  <meta name="description" content="The Daily Task Tracker is an easy-to-use HTML5 web application to track how much time you spend on tasks.">
-  <meta name="author" content="Daniel Marino">
-
-  <!-- Mobile viewport optimized: h5bp.com/viewport -->
-  <meta name="viewport" content="width=device-width">
-
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
-
-  <!-- All JavaScript at the bottom, except this Modernizr build.
-       Modernizr enables HTML5 elements & feature detects for optimal performance.
-       Create your own custom Modernizr build: www.modernizr.com/download/ -->
-  <script src="js/libs/modernizr-2.5.3.min.js"></script>
-</head>
-<body>
-
-  <header class="clearfix">
-    <h1>Daily Task Tracker</h1>
-    <h2 id="today">Today is <time></time></h2>
-  </header>
-
-  <section id="tasks">
-    <form id="tasks_form">
-      <table>
-        <thead>
-          <tr>
-            <th>Task Title</th>
-            <th>8</th>
-            <th>9</th>
-            <th>10</th>
-            <th>11</th>
-            <th>12</th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <td colspan="12">
-              <a href="#" class="button" id="add_task">Add Task</a>
-              <a href="#" class="button" id="download_csv">Download CSV</a>
-              <a href="#" class="button" id="clear_data">Clear All Tasks</a>
-            </td>
-            <td><span id="day_total">0</span></td>
-          </tr>
-        </tfoot>
-        <tbody>
-          <tr id="task_1">
-            <th class="title">
-              <div>
-                <label>Task Title</label>
-                <textarea class="task_title" placeholder="Edit task title&hellip;"></textarea>
-                <a href="#" class="delete_task">&times;</a>
-              </div>
-            </th>
-            <td class="increment">
-              <div class="inc"><label>:15</label><input type="checkbox" /></div>
-              <div class="inc"><label>:30</label><input type="checkbox" /></div>
-              <div class="inc"><label>:45</label><input type="checkbox" /></div>
-              <div class="inc"><label>:60</label><input type="checkbox" /></div>
-            </td>
-            <td class="task_total">
-              0
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
-  </section>
-
-  <footer class="clearfix">
-    <p class="help"><a href="#">Toggle Instructions</a></p>
-    <p class="sosumi">Created by <a href="http://iamdanielmarino.com">Daniel Marino</a>. Follow the Daily Task Tracker on <a href="http://github.com/starzonmyarmz/daily-task-tracker/">Github</a>.</p>
-  </footer>
-
-  <section class="instructions">
-    <ul>
-      <li>Each bubble represents 15 minutes.</li>
-      <li>Click "Add Task" or press <code>SHIFT + ENTER</code> to create a new task.</li>
-      <li>Enter a task description, and check a bubble for the amount of time you spent on it.</li>
-      <li>Your tasks and time spent are automatically saved using <a href="http://diveintohtml5.org/storage.html" target="_blank">local storage</a>.</li>
-      <li>Individual tasks can be removed by clicking the "&times;" to the left of the task.</li>
-      <li>Click "Download CSV" to download a <abbr title="Comma Seperated Value">CSV</abbr> file of your current tasks.</li>
-      <li>Click "Clear All Tasks" to erase all tasks (this will also erase local storage).</li>
-      <li>The Daily Task Tracker is inspired by Dave Seah's <a href="http://davidseah.com/blog/the-printable-ceo-iii-emergent-task-timing/" target="_blank">Emergent Task Timer</a>.</li>
-    </ul>
-  </section>
-
-  <!-- JavaScript at the bottom for fast page loading -->
-
-  <!-- scripts concatenated and minified via build script -->
   <script src="js/lib/json2.js"></script>
   <script src="js/lib/jquery.js"></script>
   <script src="js/lib/underscore.js"></script>
   <script src="js/lib/backbone.js"></script>
   <script src="js/lib/backbone-localstorage.js"></script>
   <script src="js/app.js"></script>
-  <!-- end scripts -->
+</head>
+<body>
 
-  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-       mathiasbynens.be/notes/async-analytics-snippet -->
-  <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
+  <div id="dtt">
+    <input type="text">
+    <button id="create">create</button>
+
+  </div>
+
+  <script type="text/template" class="task-template">
+    <b>test</b>
   </script>
+
+  <script>
+
+  </script>
+
 </body>
 </html>
