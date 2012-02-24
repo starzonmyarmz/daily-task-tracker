@@ -2,7 +2,7 @@
 
 $(function(){
 
-    window.Task = Backbone.Model.extend({
+    var Task = Backbone.Model.extend({
 
         initialize: function() {
 
@@ -10,26 +10,46 @@ $(function(){
 
     });
 
-    window.TaskCollection = Backbone.Collection.extend({
+    var TaskCollection = Backbone.Collection.extend({
         model: Task,
         localStorage: new Store("dtt-tasks")
     });
 
-    window.TaskView = Backbone.View.extend({
+    var TaskView = Backbone.View.extend({
+
+        tagName: 'li',
+
+        template: _.template($('.task-template').html()),
+
+        render: function() {
+            $(this.el).html(this.template(this.model.toJSON()));
+            return this;
+        }
+
     });
 
-    var Tasks = new TaskCollection;
+    var Tasks = new TaskCollection();
 
-    window.AppView = Backbone.View.extend({
+    var AppView = Backbone.View.extend({
 
         el: $('#dtt'),
 
         initialize: function() {
             this.input = this.$("input");
+
+            Tasks.on('add', this.addTask, this);
+
+            Tasks.fetch();
         },
 
         events: {
             "click button": "createTodo"
+        },
+
+        addTask: function(task) {
+            var view = new TaskView({ model: task });
+            $('#dtt').prepend(view.render().el);
+
         },
 
         createTodo: function() {
@@ -37,6 +57,6 @@ $(function(){
         }
     });
 
-    window.app = new AppView;
+    window.app = new AppView();
 
 });
