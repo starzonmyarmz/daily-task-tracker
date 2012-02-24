@@ -6,12 +6,10 @@
  *
  */
 
-/*global window, document, localStorage, $ */
-
 $(document).ready(function() {
 
     // Set some variables
-    var num = 0, rowHTML = "", hv = "has_value",
+    var num = 0, rowHTML = "",
     increment = $(".increment"), tt = $(".task_title"),
     lastSelected;
 
@@ -112,7 +110,7 @@ $(document).ready(function() {
                 if (el.is("textarea")) {
                     if (jsonData[i].value) {
                         el.text(jsonData[i].value);
-                        el.addClass(hv);
+                        el.addClass("has_value");
                     }
                 } else {
                     el.attr("checked", "checked");
@@ -191,7 +189,7 @@ $(document).ready(function() {
     (function deleteTask() {
         $(".delete_task").live("click", function() {
             $(this).parents("tr").remove();
-            num = 0 // Resets global counter for resetting field ids & names
+            num = 0; // Resets global counter for resetting field ids & names
             var all_fields = $(".title, .inc");
             addUniqueIds(all_fields);
             storeData();
@@ -204,13 +202,13 @@ $(document).ready(function() {
     (function taskTitleClass() {
         tt.live("blur", function() {
             if ($(this).val()) {
-                $(this).addClass(hv);
+                $(this).addClass("has_value");
             } else {
-                $(this).removeClass(hv);
+                $(this).removeClass("has_value");
             }
         });
         tt.live("focus", function() {
-            $(this).removeClass(hv);
+            $(this).removeClass("has_value");
         });
         tt.live("keyup", function() {
             storeData();
@@ -219,8 +217,8 @@ $(document).ready(function() {
         // Blur textarea and prevents line break when Enter key is pressed
         tt.live("keypress", function(e) {
             if (e.keyCode === 13) {
-            		$(this).blur();
-          	}
+                    $(this).blur();
+            }
         });
     }());
 
@@ -228,7 +226,7 @@ $(document).ready(function() {
     (function noSubmit() {
         $("#clear_data").click(function() {
             $("tbody tr:not(#task_1)").remove();
-            $(":input").val("").removeAttr("checked").removeClass(hv);
+            $(":input").val("").removeAttr("checked").removeClass("has_value");
             $(".inc label").removeClass("active");
             $(".task_total, #day_total").text("0");
             delete localStorage.dtt;

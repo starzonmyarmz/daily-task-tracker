@@ -1,5 +1,6 @@
 # Ignore these things...
 
+.DS_Store
 ref/
 publish/
 
