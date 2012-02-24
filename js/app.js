@@ -22,7 +22,7 @@ $(function(){
         template: _.template($('.task-template').html()),
 
         render: function() {
-            $(this.el).html(this.template(this.model.toJSON()));
+            $(this.el).html(this.template());
             return this;
         }
 
@@ -37,23 +37,23 @@ $(function(){
         initialize: function() {
             this.input = this.$("input");
 
-            Tasks.on('add', this.addTask, this);
+            //Tasks.on('add', this.addTask, this);
 
             Tasks.fetch();
         },
 
         events: {
-            "click button": "createTodo"
+            "click .add": "createTodo"
         },
 
-        addTask: function(task) {
+        addTask: function() {
+
+        },
+
+        createTodo: function(task) {
+            //Tasks.create({ title: this.input.val() });
             var view = new TaskView({ model: task });
             $('#dtt').prepend(view.render().el);
-
-        },
-
-        createTodo: function() {
-            Tasks.create({ title: this.input.val() });
         }
     });
 

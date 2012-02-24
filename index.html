@@ -6,20 +6,32 @@
   <script src="js/lib/backbone.js"></script>
   <script src="js/lib/backbone-localstorage.js"></script>
   <script src="js/app.js"></script>
+
+  <style>
+
+    li {
+      background: #efefef;
+      border-top: 1px solid #ccc;
+      padding: 10px;
+    }
+
+  </style>
+
 </head>
 <body>
 
-  <div id="dtt">
-    <input type="text">
-    <button id="create">create</button>
+  <header class="clearfix">
+    <h1>Daily Task Tracker</h1>
+  </header>
 
-    <br>
+  <div id="dtt">
+
 
     <button class="add">Add Task</button>
   </div>
 
   <script type="text/template" class="task-template">
-    <b><%= title %></b>
+    <input type="text"><button>create</button>
   </script>
 
   <script>
