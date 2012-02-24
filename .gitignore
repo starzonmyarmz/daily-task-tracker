@@ -1,7 +1,10 @@
 # Ignore these things...
 
 .DS_Store
-ref/
-publish/
 
-buildinfo.properties
+ref
+intermediate
+publish
+
+build/buildinfo.properties
+build/config/buildinfo.properties
