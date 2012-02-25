@@ -15,45 +15,68 @@ $(function(){
         localStorage: new Store("dtt-tasks")
     });
 
+    var Tasks = new TaskCollection();
+
     var TaskView = Backbone.View.extend({
 
         tagName: 'li',
 
         template: _.template($('.task-template').html()),
 
+        initialize: function() {
+
+
+            //Tasks.on('add', this.saveTask, this);
+
+        },
+
+        events: {
+            "keyup .title": "saveTask",
+            "click .remove": "removeTask"
+        },
+
         render: function() {
-            $(this.el).html(this.template());
+
+            $(this.el).html(this.template);
+
+            this.input = $(this.el).find("input");
+
             return this;
+
+        },
+
+        saveTask: function() {
+            this.model.save({ title: this.input.val() });
+            console.log('saved');
+        },
+
+        removeTask: function() {
+
         }
 
     });
-
-    var Tasks = new TaskCollection();
 
     var AppView = Backbone.View.extend({
 
         el: $('#dtt'),
 
         initialize: function() {
-            this.input = this.$("input");
 
-            //Tasks.on('add', this.addTask, this);
+            Tasks.on('add', this.addTask, this);
 
-            Tasks.fetch();
         },
 
         events: {
-            "click .add": "createTodo"
+            "click .add": "createTask"
         },
 
-        addTask: function() {
-
+        createTask: function() {
+            Tasks.create();
         },
 
-        createTodo: function(task) {
-            //Tasks.create({ title: this.input.val() });
+        addTask: function(task) {
             var view = new TaskView({ model: task });
-            $('#dtt').prepend(view.render().el);
+            $('#dtt').append(view.render().el);
         }
     });
 
