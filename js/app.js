@@ -20,13 +20,10 @@ $(function(){
     var TaskView = Backbone.View.extend({
 
         tagName: 'li',
-
         template: _.template($('.task-template').html()),
 
         initialize: function() {
 
-
-            //Tasks.on('add', this.saveTask, this);
 
         },
 
@@ -38,20 +35,24 @@ $(function(){
         render: function() {
 
             $(this.el).html(this.template);
-
             this.input = $(this.el).find("input");
-
+            this.displayData();
             return this;
 
         },
 
+        displayData: function() {
+            var title = this.model.get("title");
+            this.$('.title').val(title);
+        },
+
         saveTask: function() {
             this.model.save({ title: this.input.val() });
-            console.log('saved');
         },
 
         removeTask: function() {
-
+            this.model.destroy();
+            $(this.el).remove();
         }
 
     });
@@ -63,6 +64,9 @@ $(function(){
         initialize: function() {
 
             Tasks.on('add', this.addTask, this);
+            Tasks.on('reset', this.addAllTasks, this);
+
+            Tasks.fetch();
 
         },
 
@@ -76,7 +80,11 @@ $(function(){
 
         addTask: function(task) {
             var view = new TaskView({ model: task });
-            $('#dtt').append(view.render().el);
+            $('.tasks').append(view.render().el);
+        },
+
+        addAllTasks: function() {
+            Tasks.each(this.addTask);
         }
     });
 
