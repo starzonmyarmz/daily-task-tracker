@@ -1,54 +1,10 @@
-
-
-/**
- * Primary styles
- *
- * Author: Daniel Marino
- */
-
- a {
-   color: #00a7e6;
- }
-
- abbr {
-   border-bottom: 1px dotted #000;
- }
-
- body {
-   background: #fff;
-   font-family: HelveticaNeue-Light, helvetica, arial, verdana, sans-serif;
-   font-size: 12px;
-   line-height: 1.5;
-   margin: 15px;
- }
-
  footer {
    border-top: 1px solid #e5e5e5;
    margin-top: 30px;
    padding: 5px 0;
  }
 
- header {
-   background: #434343;
-   color: #fff;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
-   border-radius: 10px;
-   display: block;
-   line-height: 40px;
-   margin: 20px 0;
-   padding: 5px;
- }
 
- h1 {
-   float: left;
-   font-family: HelveticaNeue-CondensedBold, helvetica, arial, verdana, sans-serif;
-   font-size: 26px;
-   font-weight: bold;
-   margin: 0 5px;
-   text-shadow: 0 -1px 2px rgba(0, 0, 0 , .75);
-   text-transform: uppercase;
- }
 
  h2#today {
    background: #fff;
@@ -278,9 +234,7 @@
    opacity: 1;
  }
 
- @media screen and (-webkit-min-device-pixel-ratio:0) {
-   .delete_task { line-height: 11px; }
- }
+
 
  /* Instructions
  ----------------------------------------------------------------------------------------------------*/
@@ -300,62 +254,6 @@
    margin-bottom: 5px;
  }
 
-
- /* Media Queries for Portable Devices
- ----------------------------------------------------------------------------------------------------*/
-
- @media screen and (max-width:799px) {
-
-   th, td {
-     padding: 2px;
-     text-align: center;
-     width: 12px;
-   }
-
-   th:first-child,
-   td:first-child {
-     padding: 5px;
-     text-align: left;
-   }
-
-   thead th:after {
-     content: '';
-   }
-
-   .task_title {
-     background: -webkit-gradient(linear, 0% 0%, 0% 3%, from(#c3c3c3), to(#fff));
-     background: -moz-linear-gradient(0% 3% 90deg, #fff, #c3c3c3);
-     height: 82px;
-   }
-
-   .inc {
-     height: 20px;
-     margin: 1px;
-   }
-
- }
-
- @media screen and (max-device-width: 480px) {
-
-   header {
-     line-height: default;
-   }
-
-   h1 {
-     float: none;
-     font-size: 20px;
-     margin-bottom: 5px;
-     text-align: center;
-   }
-
-   h2#today {
-     font-size: 12px;
-     float: none;
-     line-height: 2;
-     text-align: center;
-   }
-
- }
 
 
  /* Misc
