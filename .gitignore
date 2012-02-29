@@ -1,6 +1,7 @@
 # Ignore these things...
 
 .DS_Store
+.sass-cache
 
 ref
 intermediate
@@ -9,7 +10,11 @@ publish
 build/buildinfo.properties
 build/config/buildinfo.properties
 
+*.css
+app.css
+
 # temp
 
+styles/css_backup
 content.html
 js/app-v1.js

@@ -7,7 +7,6 @@ $(function(){
         initialize: function() {
 
         }
-
     });
 
     var TaskCollection = Backbone.Collection.extend({
@@ -22,23 +21,15 @@ $(function(){
         tagName: 'li',
         template: _.template($('.task-template').html()),
 
-        initialize: function() {
-
-
-        },
-
         events: {
             "keyup .title": "saveTask",
             "click .remove": "removeTask"
         },
 
         render: function() {
-
             $(this.el).html(this.template);
-            this.input = $(this.el).find("input");
             this.displayData();
             return this;
-
         },
 
         displayData: function() {
@@ -47,14 +38,13 @@ $(function(){
         },
 
         saveTask: function() {
-            this.model.save({ title: this.input.val() });
+            this.model.save({ title: $(this.el).find("input").val() });
         },
 
         removeTask: function() {
             this.model.destroy();
             $(this.el).remove();
         }
-
     });
 
     var AppView = Backbone.View.extend({
@@ -62,12 +52,10 @@ $(function(){
         el: $('#dtt'),
 
         initialize: function() {
-
             Tasks.on('add', this.addTask, this);
             Tasks.on('reset', this.addAllTasks, this);
 
             Tasks.fetch();
-
         },
 
         events: {
