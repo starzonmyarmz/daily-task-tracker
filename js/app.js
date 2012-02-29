@@ -4,8 +4,19 @@ $(function(){
 
     var Task = Backbone.Model.extend({
 
-        initialize: function() {
+        defaults: function() {
+            return {
+                "title": "",
+                "time": this.setTime()
+            };
+        },
 
+        setTime: function() {
+            var time = [];
+            for (var x = 0; x < 45; x++) {
+                time[x] = false;
+            }
+            return time;
         }
     });
 
@@ -35,6 +46,10 @@ $(function(){
         displayData: function() {
             var title = this.model.get("title");
             this.$('.title').val(title);
+            //this.$('.time').text(this.model.get("time"));
+
+
+
         },
 
         saveTask: function() {
