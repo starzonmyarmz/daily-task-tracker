@@ -27,6 +27,13 @@ $(function(){
 
     var Tasks = new TaskCollection();
 
+    var TimeView = Backbone.View.extend({
+
+        tagName: 'a',
+        className: '.increment'
+
+    });
+
     var TaskView = Backbone.View.extend({
 
         tagName: 'li',
