@@ -27,10 +27,14 @@ $(function(){
 
     var Tasks = new TaskCollection();
 
-    var TimeView = Backbone.View.extend({
+    var TimeIncrement = Backbone.View.extend({
 
         tagName: 'a',
-        className: '.increment'
+        className: 'increment',
+        render: function() {
+            $(this.el).html("test");
+            return this;
+        }
 
     });
 
@@ -53,7 +57,16 @@ $(function(){
         displayData: function() {
             var title = this.model.get("title");
             this.$('.title').val(title);
-            //this.$('.time').text(this.model.get("time"));
+
+            _.each(this.model.get("time"), function(inc) {
+                console.log( new TimeIncrement().render().el )
+            });
+
+            //this.$('.time').append(time);
+
+            // See https://github.com/cramerdev/RidleyClient/blob/master/js/views/search/field.js#L67
+            //var view = new TimeIncrement({ model: task });
+            //$('.tasks').append(view.render().el);
 
 
 
