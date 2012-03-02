@@ -25,15 +25,14 @@ $(function(){
         localStorage: new Store("dtt-tasks")
     });
 
-    var Tasks = new TaskCollection();
+    var tasks = new TaskCollection();
 
     var TimeIncrement = Backbone.View.extend({
 
         tagName: 'a',
         className: 'increment',
         render: function() {
-            $(this.el).html(this.model);
-            console.log(this.model)
+            $(this.el).text(this.options.inc.toString());
             return this;
         }
 
@@ -59,8 +58,8 @@ $(function(){
             var title = this.model.get("title");
             this.$('.title').val(title);
 
-            _.each(this.model.get("time"), function(inc) {
-                console.log( new TimeIncrement({ model: inc }).render().el )
+            _.each(this.model.get("time"), function(increment) {
+                console.log( new TimeIncrement({ inc: increment }).render().el )
             });
 
             //this.$('.time').append(time);
@@ -88,10 +87,10 @@ $(function(){
         el: $('#dtt'),
 
         initialize: function() {
-            Tasks.on('add', this.addTask, this);
-            Tasks.on('reset', this.addAllTasks, this);
+            tasks.on('add', this.addTask, this);
+            tasks.on('reset', this.addAllTasks, this);
 
-            Tasks.fetch();
+            tasks.fetch();
         },
 
         events: {
@@ -99,7 +98,7 @@ $(function(){
         },
 
         createTask: function() {
-            Tasks.create();
+            tasks.create();
         },
 
         addTask: function(task) {
@@ -108,7 +107,7 @@ $(function(){
         },
 
         addAllTasks: function() {
-            Tasks.each(this.addTask);
+            tasks.each(this.addTask);
         }
     });
 
