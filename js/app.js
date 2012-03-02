@@ -32,7 +32,8 @@ $(function(){
         tagName: 'a',
         className: 'increment',
         render: function() {
-            $(this.el).html("test");
+            $(this.el).html(this.model);
+            console.log(this.model)
             return this;
         }
 
@@ -59,7 +60,7 @@ $(function(){
             this.$('.title').val(title);
 
             _.each(this.model.get("time"), function(inc) {
-                console.log( new TimeIncrement().render().el )
+                console.log( new TimeIncrement({ model: inc }).render().el )
             });
 
             //this.$('.time').append(time);
